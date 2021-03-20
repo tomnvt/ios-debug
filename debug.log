@@ -1,0 +1,267 @@
+2021-04-02 02:07:20,884 [INFO] Reading curl from --curl option
+2021-04-02 02:07:20,884 [INFO] Got cURL from option: curl https://api.openweathermap.org/data/2.5/weather/\?q\=prague\&appid\=44813c2fce6ddab18f11f0c36a81d42f\&units\=metric
+2021-04-02 02:07:20,884 [INFO] Parsing cURL
+2021-04-02 02:07:20,884 [INFO] Transforming cURL to Python request object
+2021-04-02 02:07:20,885 [INFO] URL: https://api.openweathermap.org
+2021-04-02 02:07:20,885 [INFO] Found method: get
+2021-04-02 02:07:20,885 [INFO] Found path: /data/2.5/weather/
+2021-04-02 02:07:20,885 [INFO] Found query params: {'q': 'prague', 'appid': '44813c2fce6ddab18f11f0c36a81d42f', 'units': 'metric'}
+2021-04-02 02:07:20,885 [INFO] Found headers: OrderedDict()
+2021-04-02 02:07:20,885 [INFO] Found body params: []
+2021-04-02 02:07:20,885 [INFO] Content parsed.
+2021-04-02 02:07:20,885 [INFO] Preparing enum cases for enum type header with names []
+2021-04-02 02:07:20,885 [INFO] Created body param rows: []
+2021-04-02 02:07:20,885 [INFO] Preparing enum cases for enum type param with names []
+2021-04-02 02:07:20,885 [INFO] Created body param rows: []
+2021-04-02 02:07:21,200 [INFO] Creating response model for Response
+2021-04-02 02:07:21,200 [INFO] Submodel found: Coord
+2021-04-02 02:07:21,200 [INFO] Creating response model for Coord
+2021-04-02 02:07:21,200 [INFO] Submodel found: Weather
+2021-04-02 02:07:21,200 [INFO] Creating response model for Weather
+2021-04-02 02:07:21,200 [INFO] Submodel found: Main
+2021-04-02 02:07:21,200 [INFO] Creating response model for Main
+2021-04-02 02:07:21,200 [INFO] Submodel found: Wind
+2021-04-02 02:07:21,201 [INFO] Creating response model for Wind
+2021-04-02 02:07:21,201 [INFO] Submodel found: Clouds
+2021-04-02 02:07:21,201 [INFO] Creating response model for Clouds
+2021-04-02 02:07:21,201 [INFO] Submodel found: Sys
+2021-04-02 02:07:21,201 [INFO] Creating response model for Sys
+2021-04-02 02:07:21,201 [INFO] Processing request template
+2021-04-02 02:07:21,201 [INFO] Processing query params: {'q': 'prague', 'appid': '44813c2fce6ddab18f11f0c36a81d42f', 'units': 'metric'}
+2021-04-02 02:07:22,558 [INFO] Processing unit test templacte
+2021-04-02 21:07:00,465 [WARNING] Request name missing.
+2021-04-02 21:07:00,466 [WARNING] Request description missing.
+2021-04-02 21:07:00,466 [INFO] Reading curl from --curl option
+2021-04-02 21:07:00,466 [INFO] --curl option not used
+2021-04-02 21:07:00,466 [INFO] Reading curl from clipboard
+2021-04-02 21:07:00,618 [INFO] cURL after cleanup: 
+      - checkout
+2021-04-02 21:07:00,618 [INFO] Parsing cURL
+2021-04-02 21:07:00,619 [INFO] Transforming cURL to Python request object
+2021-04-02 21:07:00,619 [INFO] URL: ://
+2021-04-02 21:07:00,619 [INFO] Found method: get
+2021-04-02 21:07:00,619 [INFO] Found path: checkout
+2021-04-02 21:07:00,619 [INFO] Found query params: None
+2021-04-02 21:07:00,619 [INFO] Found headers: OrderedDict()
+2021-04-02 21:07:00,619 [INFO] Found body params: []
+2021-04-02 21:07:00,619 [INFO] Content parsed.
+2021-04-02 21:07:00,619 [INFO] Preparing enum cases for enum type header with names []
+2021-04-02 21:07:00,619 [INFO] Created body param rows: []
+2021-04-02 21:07:00,619 [INFO] Preparing enum cases for enum type param with names []
+2021-04-02 21:07:00,619 [INFO] Created body param rows: []
+2021-04-02 21:07:12,253 [WARNING] Request name missing.
+2021-04-02 21:07:12,253 [WARNING] Request description missing.
+2021-04-02 21:07:12,253 [INFO] Reading curl from --curl option
+2021-04-02 21:07:12,253 [INFO] --curl option not used
+2021-04-02 21:07:12,253 [INFO] Reading curl from clipboard
+2021-04-02 21:07:12,281 [INFO] cURL after cleanup:  Reading curl from --curl option
+2021-04-02 21:07:00,466 [INFO] --curl option not used
+2021-04-02 21:07:00,466 [INFO] Reading curl from clipboard
+2021-04-02 21:07:00,618 [INFO] 
+2021-04-02 21:07:12,282 [INFO] Parsing cURL
+2021-04-02 21:07:12,283 [ERROR] Parsing failed (see usage above)
+2021-04-02 21:07:12,283 [INFO] Falling back to test cURL
+2021-04-02 21:07:12,283 [INFO] Transforming cURL to Python request object
+2021-04-02 21:07:12,284 [INFO] URL: https://api.github.com
+2021-04-02 21:07:12,284 [INFO] Found method: get
+2021-04-02 21:07:12,284 [INFO] Found path: /users/defunkt
+2021-04-02 21:07:12,284 [INFO] Found query params: None
+2021-04-02 21:07:12,284 [INFO] Found headers: OrderedDict()
+2021-04-02 21:07:12,284 [INFO] Found body params: []
+2021-04-02 21:07:12,284 [INFO] Content parsed.
+2021-04-02 21:07:12,284 [INFO] Preparing enum cases for enum type header with names []
+2021-04-02 21:07:12,284 [INFO] Created body param rows: []
+2021-04-02 21:07:12,284 [INFO] Preparing enum cases for enum type param with names []
+2021-04-02 21:07:12,284 [INFO] Created body param rows: []
+2021-04-02 21:07:12,808 [INFO] Creating response model for Response
+2021-04-02 21:07:12,808 [INFO] Processing request template
+2021-04-02 21:07:12,809 [INFO] Processing query params: None
+2021-04-02 21:07:21,798 [INFO] Processing unit test templacte
+2021-04-02 21:07:34,999 [INFO] Reading curl from --curl option
+2021-04-02 21:07:34,999 [INFO] Got cURL from option: curl --location --request POST 'https://identity-uat.oriflame.com/identity/connect/token' --header 'Accept-Encoding: gzip;q=1.0, compress;q=0.5' --header 'Accept-Language: en;q=1.0, cs-CZ;q=0.9' --header 'Content-Type: application/x-www-form-urlencoded' --header 'Authorization: Bearer https://identity.oriflame.com/identity' --header 'Cookie: f5avraaaaaaaaaaaaaaaa_session_=CACDLALPBCECCDBLGGPGOHCOEKHAEMABJJLHNLIFOPMAIOMCMOMEJJNMAFDJPDGHBOGDMPDOIFGEEHGFGAMANNFBGNEKFPIDLLMIGENEDJELHBGFAKJKEHGFNKOMOFAP; Ori.Security.Identity.SameSiteNoneSupportDetectionCookie=1; TS01c9ef37=01ca730b8cbb1c8ef9aa6ae68d9df270505305d99beb68ab836cc38da101183c844cbe35c1c2393acac53a0f5fb74cc09e0750722f' --data-urlencode 'client_secret=A1A8D10B-B087-404D-AAAE-7B646A83C37F' --data-urlencode 'scope=all' --data-urlencode 'grant_type=client_credentials' --data-urlencode 'client_id=BeautyAppBackend'
+2021-04-02 21:07:34,999 [INFO] cURL after cleanup: curl  -X POST 'https://identity-uat.oriflame.com/identity/connect/token' --header 'Accept-Encoding: gzip;q=1.0, compress;q=0.5' --header 'Accept-Language: en;q=1.0, cs-CZ;q=0.9' --header 'Content-Type: application/x-www-form-urlencoded' --header 'Authorization: Bearer https://identity.oriflame.com/identity' --header 'Cookie: f5avraaaaaaaaaaaaaaaa_session_=CACDLALPBCECCDBLGGPGOHCOEKHAEMABJJLHNLIFOPMAIOMCMOMEJJNMAFDJPDGHBOGDMPDOIFGEEHGFGAMANNFBGNEKFPIDLLMIGENEDJELHBGFAKJKEHGFNKOMOFAP; Ori.Security.Identity.SameSiteNoneSupportDetectionCookie=1; TS01c9ef37=01ca730b8cbb1c8ef9aa6ae68d9df270505305d99beb68ab836cc38da101183c844cbe35c1c2393acac53a0f5fb74cc09e0750722f' --data-urlencode 'client_secret=A1A8D10B-B087-404D-AAAE-7B646A83C37F' --data-urlencode 'scope=all' --data-urlencode 'grant_type=client_credentials' --data-urlencode 'client_id=BeautyAppBackend'
+2021-04-02 21:07:34,999 [INFO] Parsing cURL
+2021-04-02 21:07:35,000 [INFO] Transforming cURL to Python request object
+2021-04-02 21:07:35,000 [INFO] URL: https://identity-uat.oriflame.com
+2021-04-02 21:07:35,000 [INFO] Found method: post
+2021-04-02 21:07:35,000 [INFO] Found path: /identity/connect/token
+2021-04-02 21:07:35,000 [INFO] Found query params: None
+2021-04-02 21:07:35,000 [INFO] Found headers: OrderedDict([('Accept-Encoding', 'gzip;q=1.0, compress;q=0.5'), ('Accept-Language', 'en;q=1.0, cs-CZ;q=0.9'), ('Content-Type', 'application/x-www-form-urlencoded'), ('Authorization', 'Bearer https://identity.oriflame.com/identity')])
+2021-04-02 21:07:35,000 [INFO] Found body params: [['client_secret', 'A1A8D10B-B087-404D-AAAE-7B646A83C37F'], ['scope', 'all'], ['grant_type', 'client_credentials'], ['client_id', 'BeautyAppBackend']]
+2021-04-02 21:07:35,000 [INFO] Content parsed.
+2021-04-02 21:07:35,001 [INFO] Preparing enum cases for enum type header with names ['Accept-Encoding', 'Accept-Language', 'Content-Type', 'Authorization']
+2021-04-02 21:07:35,001 [INFO] Created body param rows: ['case acceptEncoding = "Accept-Encoding"', 'case acceptLanguage = "Accept-Language"', 'case contentType = "Content-Type"', 'case authorization = "Authorization"']
+2021-04-02 21:07:35,001 [INFO] Preparing enum cases for enum type param with names [['client_secret', 'A1A8D10B-B087-404D-AAAE-7B646A83C37F'], ['scope', 'all'], ['grant_type', 'client_credentials'], ['client_id', 'BeautyAppBackend']]
+2021-04-02 21:07:35,001 [INFO] Processing param with name ['client_secret', 'A1A8D10B-B087-404D-AAAE-7B646A83C37F']
+2021-04-02 21:07:35,001 [INFO] Processing param with name ['scope', 'all']
+2021-04-02 21:07:35,001 [INFO] Processing param with name ['grant_type', 'client_credentials']
+2021-04-02 21:07:35,001 [INFO] Processing param with name ['client_id', 'BeautyAppBackend']
+2021-04-02 21:07:35,001 [INFO] Created body param rows: ['case clientSecret = "client_secret"', 'case scope = "scope"', 'case grantType = "grant_type"', 'case clientId = "client_id"']
+2021-04-02 21:07:35,628 [INFO] Creating response model for Response
+2021-04-02 21:07:35,628 [INFO] Processing request template
+2021-04-02 21:07:35,628 [INFO] Processing query params: None
+2021-04-02 21:07:37,608 [INFO] Processing unit test templacte
+2021-04-02 21:07:50,102 [INFO] Reading curl from --curl option
+2021-04-02 21:07:50,102 [INFO] Got cURL from option: curl https://api.openweathermap.org/data/2.5/weather/\?q\=prague\&appid\=44813c2fce6ddab18f11f0c36a81d42f\&units\=metric
+2021-04-02 21:07:50,102 [INFO] cURL after cleanup: curl https://api.openweathermap.org/data/2.5/weather/\?q\=prague\&appid\=44813c2fce6ddab18f11f0c36a81d42f\&units\=metric
+2021-04-02 21:07:50,102 [INFO] Parsing cURL
+2021-04-02 21:07:50,103 [INFO] Transforming cURL to Python request object
+2021-04-02 21:07:50,103 [INFO] URL: https://api.openweathermap.org
+2021-04-02 21:07:50,103 [INFO] Found method: get
+2021-04-02 21:07:50,103 [INFO] Found path: /data/2.5/weather/
+2021-04-02 21:07:50,103 [INFO] Found query params: {'q': 'prague', 'appid': '44813c2fce6ddab18f11f0c36a81d42f', 'units': 'metric'}
+2021-04-02 21:07:50,103 [INFO] Found headers: OrderedDict()
+2021-04-02 21:07:50,103 [INFO] Found body params: []
+2021-04-02 21:07:50,103 [INFO] Content parsed.
+2021-04-02 21:07:50,103 [INFO] Preparing enum cases for enum type header with names []
+2021-04-02 21:07:50,103 [INFO] Created body param rows: []
+2021-04-02 21:07:50,103 [INFO] Preparing enum cases for enum type param with names []
+2021-04-02 21:07:50,103 [INFO] Created body param rows: []
+2021-04-02 21:07:50,685 [INFO] Creating response model for Response
+2021-04-02 21:07:50,685 [INFO] Submodel found: Coord
+2021-04-02 21:07:50,685 [INFO] Creating response model for Coord
+2021-04-02 21:07:50,686 [INFO] Submodel found: Weather
+2021-04-02 21:07:50,686 [INFO] Creating response model for Weather
+2021-04-02 21:07:50,686 [INFO] Submodel found: Main
+2021-04-02 21:07:50,686 [INFO] Creating response model for Main
+2021-04-02 21:07:50,686 [INFO] Submodel found: Wind
+2021-04-02 21:07:50,686 [INFO] Creating response model for Wind
+2021-04-02 21:07:50,687 [INFO] Submodel found: Clouds
+2021-04-02 21:07:50,687 [INFO] Creating response model for Clouds
+2021-04-02 21:07:50,687 [INFO] Submodel found: Sys
+2021-04-02 21:07:50,687 [INFO] Creating response model for Sys
+2021-04-02 21:07:50,687 [INFO] Processing request template
+2021-04-02 21:07:50,687 [INFO] Processing query params: {'q': 'prague', 'appid': '44813c2fce6ddab18f11f0c36a81d42f', 'units': 'metric'}
+2021-04-02 21:07:54,255 [INFO] Processing unit test templacte
+2021-04-03 01:38:47,992 [WARNING] Request name missing.
+2021-04-03 01:38:47,992 [WARNING] Request description missing.
+2021-04-03 01:38:47,992 [INFO] Reading curl from --curl option
+2021-04-03 01:38:47,992 [INFO] --curl option not used
+2021-04-03 01:38:47,992 [INFO] Reading curl from clipboard
+2021-04-03 01:38:48,028 [INFO] cURL after cleanup: pip install -i https://test.pypi.org/simple/ curl2swift==0.3.1
+2021-04-03 01:38:48,028 [INFO] Parsing cURL
+2021-04-03 01:38:48,030 [ERROR] Parsing failed (see usage above)
+2021-04-03 01:38:48,030 [INFO] Falling back to test cURL
+2021-04-03 01:38:48,030 [INFO] Transforming cURL to Python request object
+2021-04-03 01:38:48,030 [INFO] URL: https://api.github.com
+2021-04-03 01:38:48,030 [INFO] Found method: get
+2021-04-03 01:38:48,030 [INFO] Found path: /users/defunkt
+2021-04-03 01:38:48,030 [INFO] Found query params: None
+2021-04-03 01:38:48,030 [INFO] Found headers: OrderedDict()
+2021-04-03 01:38:48,030 [INFO] Found body params: []
+2021-04-03 01:38:48,878 [INFO] Preparing enum cases for enum type header with names []
+2021-04-03 01:38:48,879 [INFO] Created body param rows: []
+2021-04-03 01:38:48,879 [INFO] Preparing enum cases for enum type param with names []
+2021-04-03 01:38:48,879 [INFO] Created body param rows: []
+2021-04-03 01:38:48,879 [INFO] Content parsed.
+2021-04-03 01:38:48,879 [INFO] Creating response model for Response
+2021-04-03 01:38:48,879 [INFO] Processing request template
+2021-04-03 01:38:48,880 [INFO] Processing query params: None
+2021-04-03 01:38:49,859 [INFO] Processing unit test templacte
+2021-04-03 01:41:20,418 [WARNING] Request name missing.
+2021-04-03 01:41:20,418 [WARNING] Request description missing.
+2021-04-03 01:41:20,418 [INFO] Reading curl from --curl option
+2021-04-03 01:41:20,418 [INFO] --curl option not used
+2021-04-03 01:41:20,418 [INFO] Reading curl from clipboard
+2021-04-03 01:41:20,445 [INFO] cURL after cleanup: pip install -i https://test.pypi.org/simple/ curl2swift==0.3.1
+2021-04-03 01:41:20,445 [INFO] Parsing cURL
+2021-04-03 01:41:20,447 [ERROR] Parsing failed (see usage above)
+2021-04-03 01:41:20,447 [INFO] Falling back to test cURL
+2021-04-03 01:41:20,447 [INFO] Transforming cURL to Python request object
+2021-04-03 01:41:20,447 [INFO] URL: https://api.github.com
+2021-04-03 01:41:20,447 [INFO] Found method: get
+2021-04-03 01:41:20,447 [INFO] Found path: /users/defunkt
+2021-04-03 01:41:20,447 [INFO] Found query params: None
+2021-04-03 01:41:20,447 [INFO] Found headers: OrderedDict()
+2021-04-03 01:41:20,447 [INFO] Found body params: []
+2021-04-03 01:41:20,733 [INFO] Preparing enum cases for enum type header with names []
+2021-04-03 01:41:20,734 [INFO] Created body param rows: []
+2021-04-03 01:41:20,734 [INFO] Preparing enum cases for enum type param with names []
+2021-04-03 01:41:20,734 [INFO] Created body param rows: []
+2021-04-03 01:41:20,734 [INFO] Content parsed.
+2021-04-03 01:41:20,734 [INFO] Creating response model for Response
+2021-04-03 01:41:20,735 [INFO] Processing request template
+2021-04-03 01:41:20,735 [INFO] Processing query params: None
+2021-04-03 01:41:21,641 [INFO] Processing unit test templacte
+2021-04-03 01:53:47,316 [WARNING] Request name missing.
+2021-04-03 01:53:47,317 [WARNING] Request description missing.
+2021-04-03 01:53:47,317 [INFO] Reading curl from --curl option
+2021-04-03 01:53:47,317 [INFO] --curl option not used
+2021-04-03 01:53:47,317 [INFO] Reading curl from clipboard
+2021-04-03 01:53:47,341 [INFO] cURL after cleanup: 
+2021-04-03 01:53:47,341 [INFO] Parsing cURL
+2021-04-03 01:53:47,342 [ERROR] Parsing failed (see usage above)
+2021-04-03 01:53:47,343 [INFO] Falling back to test cURL
+2021-04-03 01:53:47,343 [INFO] Transforming cURL to Python request object
+2021-04-03 01:53:47,343 [INFO] URL: https://api.github.com
+2021-04-03 01:53:47,343 [INFO] Found method: get
+2021-04-03 01:53:47,343 [INFO] Found path: /users/defunkt
+2021-04-03 01:53:47,343 [INFO] Found query params: None
+2021-04-03 01:53:47,343 [INFO] Found headers: OrderedDict()
+2021-04-03 01:53:47,343 [INFO] Found body params: []
+2021-04-03 01:53:47,644 [INFO] Preparing enum cases for enum type header with names []
+2021-04-03 01:53:47,644 [INFO] Created body param rows: []
+2021-04-03 01:53:47,644 [INFO] Preparing enum cases for enum type param with names []
+2021-04-03 01:53:47,644 [INFO] Created body param rows: []
+2021-04-03 01:53:47,644 [INFO] Content parsed.
+2021-04-03 01:53:47,644 [INFO] Creating response model for Response
+2021-04-03 01:53:47,645 [INFO] Processing request template
+2021-04-03 01:53:47,645 [INFO] Processing query params: None
+2021-04-03 01:53:48,241 [INFO] Processing unit test templacte
+2021-04-03 02:00:33,653 [WARNING] Request name missing.
+2021-04-03 02:00:33,654 [WARNING] Request description missing.
+2021-04-03 02:00:33,654 [INFO] Reading curl from --curl option
+2021-04-03 02:00:33,654 [INFO] --curl option not used
+2021-04-03 02:00:33,654 [INFO] Reading curl from clipboard
+2021-04-03 02:00:33,681 [INFO] cURL after cleanup: 
+2021-04-03 02:00:33,681 [INFO] Parsing cURL
+2021-04-03 02:00:33,683 [ERROR] Parsing failed (see usage above)
+2021-04-03 02:00:33,683 [INFO] Falling back to test cURL
+2021-04-03 02:00:33,683 [INFO] Transforming cURL to Python request object
+2021-04-03 02:00:33,683 [INFO] URL: https://api.github.com
+2021-04-03 02:00:33,683 [INFO] Found method: get
+2021-04-03 02:00:33,683 [INFO] Found path: /users/defunkt
+2021-04-03 02:00:33,683 [INFO] Found query params: None
+2021-04-03 02:00:33,683 [INFO] Found headers: OrderedDict()
+2021-04-03 02:00:33,683 [INFO] Found body params: []
+2021-04-03 02:00:34,004 [INFO] Preparing enum cases for enum type header with names []
+2021-04-03 02:00:34,004 [INFO] Created body param rows: []
+2021-04-03 02:00:34,004 [INFO] Preparing enum cases for enum type param with names []
+2021-04-03 02:00:34,004 [INFO] Created body param rows: []
+2021-04-03 02:00:34,004 [INFO] Content parsed.
+2021-04-03 02:00:34,004 [INFO] Creating response model for Response
+2021-04-03 02:00:34,005 [INFO] Processing request template
+2021-04-03 02:00:34,005 [INFO] Processing query params: None
+2021-04-03 02:00:34,688 [INFO] Processing unit test templacte
+2021-04-03 02:00:40,461 [INFO] Reading curl from --curl option
+2021-04-03 02:00:40,461 [INFO] Got cURL from option: curl https://api.openweathermap.org/data/2.5/weather/\?q\=prague\&appid\=44813c2fce6ddab18f11f0c36a81d42f\&units\=metric
+2021-04-03 02:00:40,461 [INFO] cURL after cleanup: curl https://api.openweathermap.org/data/2.5/weather/\?q\=prague\&appid\=44813c2fce6ddab18f11f0c36a81d42f\&units\=metric
+2021-04-03 02:00:40,461 [INFO] Parsing cURL
+2021-04-03 02:00:40,462 [INFO] Transforming cURL to Python request object
+2021-04-03 02:00:40,462 [INFO] URL: https://api.openweathermap.org
+2021-04-03 02:00:40,462 [INFO] Found method: get
+2021-04-03 02:00:40,462 [INFO] Found path: /data/2.5/weather/
+2021-04-03 02:00:40,462 [INFO] Found query params: {'q': 'prague', 'appid': '44813c2fce6ddab18f11f0c36a81d42f', 'units': 'metric'}
+2021-04-03 02:00:40,462 [INFO] Found headers: OrderedDict()
+2021-04-03 02:00:40,462 [INFO] Found body params: []
+2021-04-03 02:00:42,977 [INFO] Preparing enum cases for enum type header with names []
+2021-04-03 02:00:42,977 [INFO] Created body param rows: []
+2021-04-03 02:00:42,977 [INFO] Preparing enum cases for enum type param with names []
+2021-04-03 02:00:42,977 [INFO] Created body param rows: []
+2021-04-03 02:00:42,978 [INFO] Content parsed.
+2021-04-03 02:00:42,978 [INFO] Creating response model for Response
+2021-04-03 02:00:42,978 [INFO] Submodel found: Coord
+2021-04-03 02:00:42,978 [INFO] Creating response model for Coord
+2021-04-03 02:00:42,978 [INFO] Submodel found: Weather
+2021-04-03 02:00:42,978 [INFO] Creating response model for Weather
+2021-04-03 02:00:42,978 [INFO] Submodel found: Main
+2021-04-03 02:00:42,978 [INFO] Creating response model for Main
+2021-04-03 02:00:42,979 [INFO] Submodel found: Wind
+2021-04-03 02:00:42,979 [INFO] Creating response model for Wind
+2021-04-03 02:00:42,979 [INFO] Submodel found: Clouds
+2021-04-03 02:00:42,979 [INFO] Creating response model for Clouds
+2021-04-03 02:00:42,979 [INFO] Submodel found: Sys
+2021-04-03 02:00:42,979 [INFO] Creating response model for Sys
+2021-04-03 02:00:42,979 [INFO] Processing request template
+2021-04-03 02:00:42,979 [INFO] Processing query params: {'q': 'prague', 'appid': '44813c2fce6ddab18f11f0c36a81d42f', 'units': 'metric'}
+2021-04-03 02:00:44,876 [INFO] Processing unit test templacte

@@ -1,0 +1,13 @@
+build/
+dist/
+venv/
+.vscode/
+.idea/
+
+*.pyc
+*.egg-info
+
+.DS_STORE
+notes.txt
+test.py
+ios-debug_data.pkl
