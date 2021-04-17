@@ -11,7 +11,7 @@ def get_protocols_to_protocol_functions_dict(repository_protocols, path_to_conte
                 content = path_to_content_map[path]
                 function_instances = []
                 protocol_definition = re.findall(
-                    "protocol " + protocol + ".* {([\s\S]*?)\n}", content
+                    "protocol " + protocol + r".* {([\s\S]*?)\n}", content
                 )[0]
                 functions = protocol_definition.split("func ")
                 functions = [
@@ -29,8 +29,8 @@ def get_protocols_to_protocol_functions_dict(repository_protocols, path_to_conte
                 print("Found functions for protocol", protocol + ":")
                 print()
                 for func in functions:
-                    function_name = re.findall("(\w+)", func)[0]
-                    params_part = re.findall("[\w+<>]\((.*?)\)", func)[0]
+                    function_name = re.findall(r"(\w+)", func)[0]
+                    params_part = re.findall(r"[\w+<>]\((.*?)\)", func)[0]
                     params = params_part.split(", ")
                     return_type = re.findall("-> (.*)", func)
                     if params[0] == "":

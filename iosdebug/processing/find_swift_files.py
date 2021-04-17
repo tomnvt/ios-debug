@@ -1,10 +1,10 @@
 import os
 
 
-def find_swift_files():
+def find_swift_files(target_directory=os.getcwd()):
     swift_files = []
 
-    for directory, _, files in os.walk(os.getcwd()):
+    for directory, _, files in os.walk(target_directory):
         for file in files:
             if (
                 file[-6:] == ".swift"

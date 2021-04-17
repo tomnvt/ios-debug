@@ -1,11 +1,9 @@
 from iosdebug.templates import FUNCTION_TEMPLATE, TEMPLATE
 
 
-def get_files_with_mock_and_registrations(
+def write_mock_implementations(
     repository_protocols, path_to_content_map, protocol_to_protocol_functions
 ):
-    files_with_mocks = []
-    registrations = []
     cases = ["Mocked1", "Mocked2", "Mocked3"]
     for protocol in repository_protocols:
         for path in path_to_content_map:
@@ -77,10 +75,3 @@ def get_files_with_mock_and_registrations(
 
                 with open(path, "a") as file:
                     file.write(processed_template)
-                files_with_mocks.append(path)
-                registrations.append(
-                    "registerMock<PROTOCOL>(to: container)".replace(
-                        "<PROTOCOL>", protocol
-                    )
-                )
-    return files_with_mocks, registrations

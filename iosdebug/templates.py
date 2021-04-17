@@ -55,7 +55,7 @@ SHAKABLE_NC_INSTANCE = (
 
 MOCK_MANAGER_TEMPLATE = """
 
-import Stevia
+import UIKit
 
 class MockManager: UITableViewController {
 

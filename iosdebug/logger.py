@@ -1,6 +1,6 @@
 import logging
 
-LOG_FILE_NAME = "ios-what.log"
+LOG_FILE_NAME = "ios-debug.log"
 
 instance = logging.getLogger(__name__)
 
