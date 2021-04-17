@@ -14,7 +14,7 @@ def add_mock_registrations_to_container_builder(swift_files, registrations):
         content = file.read()
         registration_rows = "\n        ".join(registrations)
         repository_registration = re.findall(
-            "static func registerRepository[\s\S]*?\n    \}", content
+            r"static func registerRepository[\s\S]*?\n    \}", content
         )[0]
         repository_registration_processed = repository_registration.replace(
             "return container", registration_rows + "\n        return container"

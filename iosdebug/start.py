@@ -29,10 +29,10 @@ def start(path=os.getcwd()):
         repository_protocols, path_to_content_map
     )
 
-    store_mocked_implementation(protocol_to_mocked_contents)
+    store_mocked_implementation(protocol_to_mocked_contents, path)
 
     create_and_set_mock_manager(
-        swift_files, path_to_content_map, processed_mock_manager
+        swift_files, path_to_content_map, processed_mock_manager, path
     )
 
     add_mock_registrations_to_container_builder(swift_files, registrations)

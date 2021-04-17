@@ -1,11 +1,12 @@
+import os
 import pickle
 from ast import literal_eval
 
 from iosdebug.constants import DATA_FILE
 
 
-def store_mocked_implementations(path_to_content_map):
-    with open(DATA_FILE, "rb") as file:
+def store_mocked_implementations(path_to_content_map, path):
+    with open(path + os.sep + DATA_FILE, "rb") as file:
         data = pickle.load(file)
         data = literal_eval(data)
     for protocol in data["mock_implementations"]:

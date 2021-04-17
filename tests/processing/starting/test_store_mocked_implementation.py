@@ -1,3 +1,4 @@
+import os
 import pickle
 from iosdebug.constants import DATA_FILE
 from tests.test_base import IosDebugTests
@@ -35,8 +36,8 @@ class Test(IosDebugTests):
             repository_protocols, path_to_content_dict
         )
 
-        store_mocked_implementation(protocol_to_mocked_contents)
+        store_mocked_implementation(protocol_to_mocked_contents, IosDebugTests.START_TEST_PROJECT_PATH)
 
-        with open(DATA_FILE, "rb") as file:
+        with open(IosDebugTests.START_TEST_PROJECT_PATH + os.sep + DATA_FILE, "rb") as file:
             content = pickle.load(file)
             assert "mock_implementations" in content

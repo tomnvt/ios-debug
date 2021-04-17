@@ -1,3 +1,4 @@
+import os
 import pickle
 import re
 from ast import literal_eval
@@ -7,7 +8,7 @@ from iosdebug.templates import SHAKABLE_NC, SHAKABLE_NC_INSTANCE
 
 
 def create_and_set_mock_manager(
-    swift_files, path_to_content_map, processed_mock_manager
+    swift_files, path_to_content_map, processed_mock_manager, path
 ):
     for file_path in swift_files:
         with open(file_path, "r") as file:
@@ -40,12 +41,12 @@ def create_and_set_mock_manager(
                         file.write(processed_mock_manager)
 
                 if "/ MARK: - Debug mode helper classes" not in content:
-                    with open(DATA_FILE, "rb") as file:
+                    with open(path + os.sep + DATA_FILE, "rb") as file:
                         data = pickle.load(file)
                         data = literal_eval(data)
                         data[
                             "original_root_view_controller"
                         ] = root_vc_property_definition
                         data["changed_root_view_controlbler"] = changed
-                    with open(DATA_FILE, "wb") as file:
+                    with open(path + os.sep + DATA_FILE, "wb") as file:
                         pickle.dump(str(data), file)
