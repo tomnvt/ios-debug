@@ -1,4 +1,8 @@
-from iosdebug.templates import MOCK_MANAGER_SETTINGS_TEMPLATE, FUNCTION_SETTINGS_TEMPLATE, MOCK_MANAGER_TEMPLATE
+from iosdebug.templates import (
+    MOCK_MANAGER_SETTINGS_TEMPLATE,
+    FUNCTION_SETTINGS_TEMPLATE,
+    MOCK_MANAGER_TEMPLATE,
+)
 
 
 def get_mock_settings_and_mock_cursor(protocol_to_protocol_functions):
@@ -12,28 +16,48 @@ def get_mock_settings_and_mock_cursor(protocol_to_protocol_functions):
                 external_param_names = []
                 for param in func.params:
                     external_param_name = param.split()[0]
-                    if ':' not in external_param_name:
-                        external_param_name += ':'
+                    if ":" not in external_param_name:
+                        external_param_name += ":"
                     external_param_names.append(external_param_name)
             else:
-                external_param_names = ''
-            func_annotation = func.name + '(' + ''.join(external_param_names) + ')'
+                external_param_names = ""
+            func_annotation = func.name + "(" + "".join(external_param_names) + ")"
             if func_annotation not in func_annotations:
-                func_annotations.append(func.name + '(' + ''.join(external_param_names) + ')')
+                func_annotations.append(
+                    func.name + "(" + "".join(external_param_names) + ")"
+                )
 
         function_settings = []
         function_cursors = []
         for annotation in func_annotations:
-            function_settings.append(FUNCTION_SETTINGS_TEMPLATE.replace('<FUNCTION_ANNOTATION>', annotation).replace('<SETTINGS_VALUES>', '["Mocked1", "Mocked2", "Mocked3"]'))
-            function_cursors.append(FUNCTION_SETTINGS_TEMPLATE.replace('<FUNCTION_ANNOTATION>', annotation).replace('<SETTINGS_VALUES>', "0"))
+            function_settings.append(
+                FUNCTION_SETTINGS_TEMPLATE.replace(
+                    "<FUNCTION_ANNOTATION>", annotation
+                ).replace("<SETTINGS_VALUES>", '["Mocked1", "Mocked2", "Mocked3"]')
+            )
+            function_cursors.append(
+                FUNCTION_SETTINGS_TEMPLATE.replace(
+                    "<FUNCTION_ANNOTATION>", annotation
+                ).replace("<SETTINGS_VALUES>", "0")
+            )
 
-        processed_template = MOCK_MANAGER_SETTINGS_TEMPLATE.replace('<PROTOCOL>', 'Mock' + repository + 'Impl')
-        processed_template_settings = processed_template.replace('<FUNCTION_SETTINGS>', ',\n    '.join(function_settings))
-        processed_template_cursors = processed_template.replace('<FUNCTION_SETTINGS>', ',\n    '.join(function_cursors))
+        processed_template = MOCK_MANAGER_SETTINGS_TEMPLATE.replace(
+            "<PROTOCOL>", "Mock" + repository + "Impl"
+        )
+        processed_template_settings = processed_template.replace(
+            "<FUNCTION_SETTINGS>", ",\n    ".join(function_settings)
+        )
+        processed_template_cursors = processed_template.replace(
+            "<FUNCTION_SETTINGS>", ",\n    ".join(function_cursors)
+        )
 
         mock_settings.append(processed_template_settings)
         mock_cursors.append(processed_template_cursors)
 
-    processed_mock_manager = MOCK_MANAGER_TEMPLATE.replace('<MOCK_CURSORS>', ',\n         '.join(mock_cursors))
-    processed_mock_manager = processed_mock_manager.replace('<MOCK_SETTINGS>', ',\n         '.join(mock_settings))
+    processed_mock_manager = MOCK_MANAGER_TEMPLATE.replace(
+        "<MOCK_CURSORS>", ",\n         ".join(mock_cursors)
+    )
+    processed_mock_manager = processed_mock_manager.replace(
+        "<MOCK_SETTINGS>", ",\n         ".join(mock_settings)
+    )
     return processed_mock_manager

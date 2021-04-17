@@ -49,7 +49,9 @@ class ShakableNavigationController: UINavigationController {
 }
 """
 
-SHAKABLE_NC_INSTANCE = "ShakableNavigationController() // !!! Don't edit this line while in debug mode !!!"
+SHAKABLE_NC_INSTANCE = (
+    "ShakableNavigationController() // !!! Don't edit this line while in debug mode !!!"
+)
 
 MOCK_MANAGER_TEMPLATE = """
 

@@ -1,6 +1,6 @@
 import logging
 
-LOG_FILE_NAME = 'ios-what.log'
+LOG_FILE_NAME = "ios-what.log"
 
 instance = logging.getLogger(__name__)
 
@@ -11,8 +11,8 @@ c_handler.setLevel(logging.WARNING)
 f_handler.setLevel(logging.WARNING)
 
 # Create formatters and add it to handlers
-c_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
-f_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+c_format = logging.Formatter("%(name)s - %(levelname)s - %(message)s")
+f_format = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 c_handler.setFormatter(c_format)
 f_handler.setFormatter(f_format)
 
@@ -22,7 +22,5 @@ instance.addHandler(f_handler)
 
 
 def delete_old_log_file():
-    with open(LOG_FILE_NAME, 'w') as file:
-        file.write('')
-
-
+    with open(LOG_FILE_NAME, "w") as file:
+        file.write("")
