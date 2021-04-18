@@ -10,4 +10,7 @@ import Foundation
 protocol AwesomeRepository {
 
     func doAwesomeThings()
+    func doGenericAwesomeThings<T>(type: T.Type)
+    func doAwesomeThingsWithTupleParameter(tupleList [(first: String, second: String)])
+    func doAwesomeThingsAndReturnSingle() -> Single<String>
 }

@@ -1,10 +1,18 @@
 import os
+import pickle
+import sys
+
 from .processing.find_swift_files import find_swift_files
 from .processing.create_path_to_content_dict import create_path_to_content_dict
 from .processing.starting import *
+from iosdebug.constants import DATA_FILE
 
 
 def start(path=os.getcwd()):
+    if not os.path.isfile(path + os.sep + DATA_FILE):
+        with open(path + os.sep + DATA_FILE, "wb") as file:
+            pickle.dump("{'mock_implementations': {}}", file)
+
     swift_files = find_swift_files(path)
 
     path_to_content_map = create_path_to_content_dict(swift_files)
@@ -18,7 +26,7 @@ def start(path=os.getcwd()):
     registrations = get_registrations(repository_protocols)
 
     write_mock_implementations(
-        repository_protocols, path_to_content_map, protocol_to_protocol_functions
+        repository_protocols, path_to_content_map, protocol_to_protocol_functions, path
     )
 
     processed_mock_manager = get_mock_settings_and_mock_cursor(

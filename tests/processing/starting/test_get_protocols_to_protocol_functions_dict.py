@@ -18,7 +18,14 @@ class Test(IosDebugTests):
             repository_protocols, path_to_content_dict
         )
         awesome_function = result["AwesomeRepository"][0]
-
         assert awesome_function.name == "doAwesomeThings"
         assert awesome_function.params == None
         assert awesome_function.return_type == None
+
+        awesome_generic_function = result["AwesomeRepository"][1]
+        assert awesome_generic_function.name == "doGenericAwesomeThings"
+        assert awesome_generic_function.generic_parameter_clause == "<T>"
+
+        awesome_function_with_tuple_param = result["AwesomeRepository"][2]
+        assert awesome_function_with_tuple_param.name == "doAwesomeThingsWithTupleParameter"
+        assert awesome_function_with_tuple_param.params[0] == "tupleList [(first: String, second: String)]"

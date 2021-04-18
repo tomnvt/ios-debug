@@ -1,5 +1,9 @@
-from iosdebug.processing.starting.get_protocol_to_mocked_content_dict import get_protocol_to_mocked_content_dict
-from iosdebug.processing.starting.store_mocked_implementation import store_mocked_implementation
+from iosdebug.processing.starting.get_protocol_to_mocked_content_dict import (
+    get_protocol_to_mocked_content_dict,
+)
+from iosdebug.processing.starting.store_mocked_implementation import (
+    store_mocked_implementation,
+)
 from iosdebug.processing.starting.get_mock_settings_and_mock_cursor import (
     get_mock_settings_and_mock_cursor,
 )
@@ -34,16 +38,26 @@ class Test(IosDebugTests):
         )
 
         write_mock_implementations(
-            repository_protocols, path_to_content_dict, protocols_to_functions_map
+            repository_protocols,
+            path_to_content_dict,
+            protocols_to_functions_map,
+            IosDebugTests.START_TEST_PROJECT_PATH,
         )
 
         protocol_to_mocked_contents = get_protocol_to_mocked_content_dict(
             repository_protocols, path_to_content_dict
         )
 
-        store_mocked_implementation(protocol_to_mocked_contents, IosDebugTests.START_TEST_PROJECT_PATH)
+        store_mocked_implementation(
+            protocol_to_mocked_contents, IosDebugTests.START_TEST_PROJECT_PATH
+        )
 
-        create_and_set_mock_manager(files, path_to_content_dict, processed_mock_manager, IosDebugTests.START_TEST_PROJECT_PATH)
+        create_and_set_mock_manager(
+            files,
+            path_to_content_dict,
+            processed_mock_manager,
+            IosDebugTests.START_TEST_PROJECT_PATH,
+        )
 
         target_file = (
             IosDebugTests.START_TEST_PROJECT_PATH

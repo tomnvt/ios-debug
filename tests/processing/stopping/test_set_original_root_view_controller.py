@@ -24,7 +24,9 @@ class Test(IosDebugTests):
 
         files = find_swift_files(IosDebugTests.STOP_TEST_PROJECT_PATH)
         path_to_content_dict = create_path_to_content_dict(files)
-        set_original_root_view_controller(files, path_to_content_dict, IosDebugTests.STOP_TEST_PROJECT_PATH)
+        set_original_root_view_controller(
+            files, path_to_content_dict, IosDebugTests.STOP_TEST_PROJECT_PATH
+        )
 
         with open(target_file, "r") as file:
             content = file.read()

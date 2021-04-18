@@ -32,7 +32,10 @@ class Test(IosDebugTests):
         registrations = get_registrations(repository_protocols)
 
         write_mock_implementations(
-            repository_protocols, path_to_content_dict, protocols_to_functions_map
+            repository_protocols,
+            path_to_content_dict,
+            protocols_to_functions_map,
+            IosDebugTests.START_TEST_PROJECT_PATH,
         )
 
         add_mock_registrations_to_container_builder(files, registrations)

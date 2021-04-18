@@ -22,7 +22,10 @@ class Test(IosDebugTests):
             repository_protocols, path_to_content_dict
         )
         write_mock_implementations(
-            repository_protocols, path_to_content_dict, protocols_to_functions_map
+            repository_protocols,
+            path_to_content_dict,
+            protocols_to_functions_map,
+            IosDebugTests.START_TEST_PROJECT_PATH,
         )
 
         target_file = (
@@ -35,3 +38,5 @@ class Test(IosDebugTests):
         with open(target_file, "r") as file:
             content = file.read()
             assert "// MARK: - Mock implementation" in content
+            assert content.count('func doGenericAwesomeThings<T>') == 2
+            assert content.count('func doAwesomeThingsAndReturnSingle() -> Single<String>') == 2

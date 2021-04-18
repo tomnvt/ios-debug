@@ -1,5 +1,5 @@
 FUNCTION_TEMPLATE = """
-    func <FUNC_NAME>(<FUNC_PARAMS>) <RETURN_TYPE>{
+    func <FUNC_NAME><GENERIC_PARAMETER_CLAUSE>(<FUNC_PARAMS>) <RETURN_TYPE>{
         switch MockManager.getOption(self, #function) {
         <CASES>
         default: break

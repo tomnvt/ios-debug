@@ -30,14 +30,21 @@ class Test(IosDebugTests):
             repository_protocols, path_to_content_dict
         )
         write_mock_implementations(
-            repository_protocols, path_to_content_dict, protocols_to_functions_map
+            repository_protocols,
+            path_to_content_dict,
+            protocols_to_functions_map,
+            IosDebugTests.START_TEST_PROJECT_PATH,
         )
         protocol_to_mocked_contents = get_protocol_to_mocked_content_dict(
             repository_protocols, path_to_content_dict
         )
 
-        store_mocked_implementation(protocol_to_mocked_contents, IosDebugTests.START_TEST_PROJECT_PATH)
+        store_mocked_implementation(
+            protocol_to_mocked_contents, IosDebugTests.START_TEST_PROJECT_PATH
+        )
 
-        with open(IosDebugTests.START_TEST_PROJECT_PATH + os.sep + DATA_FILE, "rb") as file:
+        with open(
+            IosDebugTests.START_TEST_PROJECT_PATH + os.sep + DATA_FILE, "rb"
+        ) as file:
             content = pickle.load(file)
             assert "mock_implementations" in content
