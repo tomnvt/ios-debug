@@ -21,9 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let localWindow = UIApplication.shared.windows.filter { $0.isKeyWindow }
             .first ?? UIWindow()
 
-        localWindow.rootViewController = UINavigationController()
-        localWindow.makeKeyAndVisible()
         window = localWindow
+
+        let navigationController = UINavigationController(nibName: nil, bundle: nil)
+        navigationController.isNavigationBarHidden = true
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
     }
 }
 

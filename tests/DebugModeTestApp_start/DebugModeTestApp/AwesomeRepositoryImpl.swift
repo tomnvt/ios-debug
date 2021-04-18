@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 class AwesomeRepositoryImpl {
 
@@ -28,5 +29,9 @@ extension AwesomeRepositoryImpl: AwesomeRepository {
 
     func doAwesomeThingsAndReturnSingle() -> Single<String> {
         return .just("Doing awesome things")
+    }
+
+    func doAwesomeThingsWithDocs() {
+        print("Doing awesome things")
     }
 }

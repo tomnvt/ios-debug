@@ -8,6 +8,7 @@ from iosdebug.templates import SHAKABLE_NC_INSTANCE
 
 
 def set_original_root_view_controller(swift_files, path_to_content_map, path):
+    print(path + os.sep + DATA_FILE)
     with open(path + os.sep + DATA_FILE, "rb") as file:
         data = pickle.load(file)
         data = literal_eval(data)
@@ -18,9 +19,8 @@ def set_original_root_view_controller(swift_files, path_to_content_map, path):
             path_to_content_map[file_path] = content
             root_vc_property = re.findall(r"rootViewController[\s]+=[\s]+(.*)", content)
             if root_vc_property:
-                print("root_vc_property[0]")
-                print(root_vc_property[0])
-                print()
+                from pprint import pprint
+                pprint(data)
                 content = content.replace(
                     root_vc_property[0], data["original_root_view_controller"]
                 )

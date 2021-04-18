@@ -18,12 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func presentFirstScreen(application: UIApplication) {
-        let localWindow = UIApplication.shared.windows.filter { $0.isKeyWindow }
-            .first ?? UIWindow()
-
-        localWindow.rootViewController = ShakableNavigationController() // !!! Don't edit this line while in debug mode !!!
-        localWindow.makeKeyAndVisible()
-        window = localWindow
+        let window = application.keyWindow ?? UIWindow()
+        let navigationController = UINavigationController(nibName: nil, bundle: nil)
+        navigationController.isNavigationBarHidden = true
+        self.window = window
+        self.window?.rootViewController = ShakableNavigationController() // !!! Don't edit this line while in debug mode !!!
+        self.window?.makeKeyAndVisible()
     }
 }
 

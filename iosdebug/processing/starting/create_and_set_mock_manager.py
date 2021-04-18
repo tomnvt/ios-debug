@@ -15,6 +15,7 @@ def create_and_set_mock_manager(
             content = file.read()
             path_to_content_map[file_path] = content
             root_vc_property = re.findall(r"rootViewController[\s]+=[\s]+(.*)", content)
+
             if root_vc_property:
                 if root_vc_property[0] == SHAKABLE_NC_INSTANCE:
                     break
@@ -25,7 +26,7 @@ def create_and_set_mock_manager(
                     changed = ""
                 else:
                     root_vc_property_definition = re.findall(
-                        root_vc_property[0] + " = .*", content
+                        "rootViewController" + " = .*", content
                     )[0]
                     root_vc_property_instance = re.findall(
                         " = (.*)", root_vc_property_definition
@@ -40,13 +41,13 @@ def create_and_set_mock_manager(
                         file.write(SHAKABLE_NC)
                         file.write(processed_mock_manager)
 
-                if "/ MARK: - Debug mode helper classes" not in content:
-                    with open(path + os.sep + DATA_FILE, "rb") as file:
-                        data = pickle.load(file)
-                        data = literal_eval(data)
-                        data[
-                            "original_root_view_controller"
-                        ] = root_vc_property_definition
-                        data["changed_root_view_controlbler"] = changed
-                    with open(path + os.sep + DATA_FILE, "wb") as file:
-                        pickle.dump(str(data), file)
+                with open(path + os.sep + DATA_FILE, "rb") as file:
+                    data = pickle.load(file)
+                    data = literal_eval(data)
+                    data[
+                        "original_root_view_controller"
+                    ] = root_vc_property_instance
+                    data["changed_root_view_controlbler"] = changed
+
+                with open(path + os.sep + DATA_FILE, "wb") as file:
+                    pickle.dump(str(data), file)

@@ -5,4 +5,4 @@ from iosdebug.stop import stop
 
 class Test(IosDebugTests):
     def test_whole_start_process(self):
-        stop(IosDebugTests.START_TEST_PROJECT_PATH)
+        stop(IosDebugTests.STOP_TEST_PROJECT_PATH)

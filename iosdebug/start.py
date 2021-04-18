@@ -5,7 +5,7 @@ import sys
 from .processing.find_swift_files import find_swift_files
 from .processing.create_path_to_content_dict import create_path_to_content_dict
 from .processing.starting import *
-from iosdebug.constants import DATA_FILE
+from iosdebug.constants import DATA_FILE, IGNORE_FILE
 
 
 def start(path=os.getcwd()):
@@ -13,11 +13,24 @@ def start(path=os.getcwd()):
         with open(path + os.sep + DATA_FILE, "wb") as file:
             pickle.dump("{'mock_implementations': {}}", file)
 
+    if os.path.isfile(path + os.sep + IGNORE_FILE):
+        with open(path + os.sep + IGNORE_FILE, 'r') as file:
+            ignored_protocols = file.read().split('\n')
+    else:
+        ignored_protocols = []
+
+    print('ignored:', ignored_protocols)
+
     swift_files = find_swift_files(path)
 
     path_to_content_map = create_path_to_content_dict(swift_files)
 
     repository_protocols = find_repository_protocols(path_to_content_map)
+
+    for protocol in ignored_protocols:
+        if protocol in repository_protocols:
+            index = repository_protocols.index(protocol)
+            del repository_protocols[index]
 
     protocol_to_protocol_functions = get_protocols_to_protocol_functions_dict(
         repository_protocols, path_to_content_map

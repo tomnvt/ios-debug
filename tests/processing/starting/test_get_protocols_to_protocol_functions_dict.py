@@ -28,4 +28,4 @@ class Test(IosDebugTests):
 
         awesome_function_with_tuple_param = result["AwesomeRepository"][2]
         assert awesome_function_with_tuple_param.name == "doAwesomeThingsWithTupleParameter"
-        assert awesome_function_with_tuple_param.params[0] == "tupleList [(first: String, second: String)]"
+        assert awesome_function_with_tuple_param.params[0] == "tupleList: [(first: String, second: String)]"
