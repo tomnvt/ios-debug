@@ -5,8 +5,8 @@ from ast import literal_eval
 from iosdebug.constants import DATA_FILE
 
 
-def store_mocked_implementations(path_to_content_map, path):
-    with open(path + os.sep + DATA_FILE, "rb") as file:
+def store_mocked_implementations(path_to_content_map, root_path):
+    with open(root_path + os.sep + DATA_FILE, "rb") as file:
         data = pickle.load(file)
         data = literal_eval(data)
     for protocol in data["mock_implementations"]:
@@ -18,3 +18,5 @@ def store_mocked_implementations(path_to_content_map, path):
                     data["mock_implementations"][protocol] = content_split[1]
                     with open(path, "w") as file:
                         file.write(content_split[0])
+    with open(root_path + os.sep + DATA_FILE, "wb") as file:
+        pickle.dump(str(data), file)

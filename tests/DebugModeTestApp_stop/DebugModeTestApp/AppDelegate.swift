@@ -18,10 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func presentFirstScreen(application: UIApplication) {
-        let window = application.keyWindow ?? UIWindow()
+        let localWindow = UIApplication.shared.windows.filter { $0.isKeyWindow }
+            .first ?? UIWindow()
+
+        window = localWindow
+
         let navigationController = UINavigationController(nibName: nil, bundle: nil)
         navigationController.isNavigationBarHidden = true
-        self.window = window
         self.window?.rootViewController = ShakableNavigationController() // !!! Don't edit this line while in debug mode !!!
         self.window?.makeKeyAndVisible()
     }
@@ -40,18 +43,30 @@ class ShakableNavigationController: UINavigationController {
 }
 
 
+import UIKit
+
 class MockManager: UITableViewController {
 
     static var cursor = [
         "MockAwesomeRepositoryImpl": [
-            "doAwesomeThings()": 0
+            "doAwesomeThings()": 0,
+            "doGenericAwesomeThings(type:)": 0,
+            "doAwesomeThingsWithTupleParameter(tupleList:)": 0,
+            "doAwesomeThingsAndReturnSingle()": 0,
+            "doAwesomeThingsWithDocs()": 0,
+            "getLatestAndMinimal()": 0
         ]
     ]
 
     // swiftlint:disable trailing_comma
     static var settings = [
         "MockAwesomeRepositoryImpl": [
-            "doAwesomeThings()": ["Mocked1", "Mocked2", "Mocked3"]
+            "doAwesomeThings()": ["Mocked1", "Mocked2", "Mocked3"],
+            "doGenericAwesomeThings(type:)": ["Mocked1", "Mocked2", "Mocked3"],
+            "doAwesomeThingsWithTupleParameter(tupleList:)": ["Mocked1", "Mocked2", "Mocked3"],
+            "doAwesomeThingsAndReturnSingle()": ["Mocked1", "Mocked2", "Mocked3"],
+            "doAwesomeThingsWithDocs()": ["Mocked1", "Mocked2", "Mocked3"],
+            "getLatestAndMinimal()": ["Mocked1", "Mocked2", "Mocked3"]
         ]
     ]
 

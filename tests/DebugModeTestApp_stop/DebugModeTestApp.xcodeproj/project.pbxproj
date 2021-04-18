@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBBA0AED262CA57800B85AE8 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BBBA0AEC262CA57800B85AE8 /* RxSwift */; };
+		BBBA0AEF262CA57800B85AE8 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BBBA0AEE262CA57800B85AE8 /* RxCocoa */; };
 		BBD1C6B2262AB9C1007C0866 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1C6B1262AB9C1007C0866 /* AppDelegate.swift */; };
 		BBD1C6B4262AB9C1007C0866 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1C6B3262AB9C1007C0866 /* SceneDelegate.swift */; };
 		BBD1C6B6262AB9C1007C0866 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD1C6B5262AB9C1007C0866 /* ViewController.swift */; };
@@ -63,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBBA0AEF262CA57800B85AE8 /* RxCocoa in Frameworks */,
+				BBBA0AED262CA57800B85AE8 /* RxSwift in Frameworks */,
 				BBD1C6EB262ABA1F007C0866 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,6 +161,8 @@
 			name = DebugModeTestApp;
 			packageProductDependencies = (
 				BBD1C6EA262ABA1F007C0866 /* Swinject */,
+				BBBA0AEC262CA57800B85AE8 /* RxSwift */,
+				BBBA0AEE262CA57800B85AE8 /* RxCocoa */,
 			);
 			productName = DebugModeTestApp;
 			productReference = BBD1C6AE262AB9C1007C0866 /* DebugModeTestApp.app */;
@@ -231,6 +237,7 @@
 			mainGroup = BBD1C6A5262AB9C1007C0866;
 			packageReferences = (
 				BBD1C6E9262ABA1F007C0866 /* XCRemoteSwiftPackageReference "Swinject" */,
+				BBBA0AEB262CA57800B85AE8 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = BBD1C6AF262AB9C1007C0866 /* Products */;
 			projectDirPath = "";
@@ -609,6 +616,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BBBA0AEB262CA57800B85AE8 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
 		BBD1C6E9262ABA1F007C0866 /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";
@@ -620,6 +635,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BBBA0AEC262CA57800B85AE8 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBBA0AEB262CA57800B85AE8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		BBBA0AEE262CA57800B85AE8 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBBA0AEB262CA57800B85AE8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
 		BBD1C6EA262ABA1F007C0866 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BBD1C6E9262ABA1F007C0866 /* XCRemoteSwiftPackageReference "Swinject" */;

@@ -31,3 +31,4 @@ class Test(IosDebugTests):
                 "func doAwesomeThings()"
                 in dictionary["mock_implementations"]["AwesomeRepository"]
             )
+            assert "Mocked4" in dictionary["mock_implementations"]["AwesomeRepository"]

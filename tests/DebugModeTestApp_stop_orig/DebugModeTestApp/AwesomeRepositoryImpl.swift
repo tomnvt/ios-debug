@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 class AwesomeRepositoryImpl {
 
@@ -17,9 +18,40 @@ extension AwesomeRepositoryImpl: AwesomeRepository {
     func doAwesomeThings() {
         print("Doing awesome things")
     }
-}
 
+    func doGenericAwesomeThings<T>(type: T.Type) {
+        print("Doing awesome things with \(type)")
+    }
+
+    func doAwesomeThingsWithTupleParameter(tupleList: [(first: String, second: String)]) {
+        print("Doing awesome things with \(tupleList)")
+    }
+
+    func doAwesomeThingsAndReturnSingle() -> Single<String> {
+        return .just("Doing awesome things")
+    }
+
+    func doAwesomeThingsWithDocs() {
+        print("Doing awesome things")
+    }
+}
 // MARK: - Mock implementation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 protocol MockAwesomeRepository: AwesomeRepository {}
 
 class MockAwesomeRepositoryImpl: AwesomeRepository {
@@ -42,6 +74,62 @@ extension MockAwesomeRepositoryImpl {
         default: break
         }
         originalInstance.doAwesomeThings()
+    }
+
+    
+    func doGenericAwesomeThings<T>(type: T.Type) {
+        switch MockManager.getOption(self, #function) {
+        case "Mocked1": break
+        case "Mocked2": break
+        case "Mocked3": break
+        default: break
+        }
+        originalInstance.doGenericAwesomeThings(type: type)
+    }
+
+    
+    func doAwesomeThingsWithTupleParameter(tupleList: [(first: String, second: String)]) {
+        switch MockManager.getOption(self, #function) {
+        case "Mocked1": break
+        case "Mocked2": break
+        case "Mocked3": break
+        default: break
+        }
+        originalInstance.doAwesomeThingsWithTupleParameter(tupleList: tupleList)
+    }
+
+    
+    func doAwesomeThingsAndReturnSingle() -> Single<String> {
+        switch MockManager.getOption(self, #function) {
+        case "Mocked1": break
+        case "Mocked2": break
+        case "Mocked3": break
+        case "Mocked4": break
+        default: break
+        }
+        return originalInstance.doAwesomeThingsAndReturnSingle()
+    }
+
+    
+    func doAwesomeThingsWithDocs() {
+        switch MockManager.getOption(self, #function) {
+        case "Mocked1": break
+        case "Mocked2": break
+        case "Mocked3": break
+        default: break
+        }
+        originalInstance.doAwesomeThingsWithDocs()
+    }
+
+    
+    func getLatestAndMinimal() -> Single<(latest: String, minimal: String)> {
+        switch MockManager.getOption(self, #function) {
+        case "Mocked1": break
+        case "Mocked2": break
+        case "Mocked3": break
+        default: break
+        }
+        return originalInstance.getLatestAndMinimal()
     }
 
 }

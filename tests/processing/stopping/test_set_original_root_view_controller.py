@@ -33,6 +33,5 @@ class Test(IosDebugTests):
 
         with open(target_file, "r") as file:
             content = file.read()
-            assert (
-                "self.window?.rootViewController = UINavigationController()" in content
-            )
+            print(content)
+            assert "self.window?.rootViewController = navigationController" in content

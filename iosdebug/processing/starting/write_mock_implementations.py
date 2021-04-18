@@ -12,9 +12,9 @@ def write_mock_implementations(
         for path in path_to_content_map:
             if "class " + protocol in path_to_content_map[path]:
                 stored_impl = get_stored_mock_implementation(root_path, protocol)
-                if stored_impl and False:
+                if stored_impl:
                     processed_template = (
-                        "// MARK: - Mock implementation\n" + stored_impl
+                        "\n// MARK: - Mock implementation\n" + stored_impl
                     )
                 else:
                     functions = []
