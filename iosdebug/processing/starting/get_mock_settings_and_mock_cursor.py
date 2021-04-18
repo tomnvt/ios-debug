@@ -5,7 +5,9 @@ from iosdebug.templates import (
 )
 
 
-def get_mock_settings_and_mock_cursor(protocol_to_protocol_functions):
+def get_mock_settings_and_mock_cursor(
+    protocol_to_protocol_functions, protocol_to_mock_function_variants
+):
     mock_settings = []
     mock_cursors = []
     for repository in protocol_to_protocol_functions:
@@ -29,11 +31,17 @@ def get_mock_settings_and_mock_cursor(protocol_to_protocol_functions):
 
         function_settings = []
         function_cursors = []
-        for annotation in func_annotations:
+        for index, annotation in enumerate(func_annotations):
+            func_declaration = funcs[index].declaration
+            mocked_variants = protocol_to_mock_function_variants[repository][
+                func_declaration
+            ]
             function_settings.append(
                 FUNCTION_SETTINGS_TEMPLATE.replace(
-                    "<FUNCTION_ANNOTATION>", annotation
-                ).replace("<SETTINGS_VALUES>", '["Mocked1", "Mocked2", "Mocked3"]')
+                    "<FUNCTION_ANNOTATION>",
+                    annotation
+                    # TODO: Implement getting mocked variants
+                ).replace("<SETTINGS_VALUES>", "[" + ", ".join(mocked_variants) + "]")
             )
             function_cursors.append(
                 FUNCTION_SETTINGS_TEMPLATE.replace(

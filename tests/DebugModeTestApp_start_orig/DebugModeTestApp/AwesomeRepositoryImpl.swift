@@ -15,6 +15,8 @@ class AwesomeRepositoryImpl {
 // MARK: - Protocol conformance
 extension AwesomeRepositoryImpl: AwesomeRepository {
 
+    var someVariable: String { "" }
+
     func doAwesomeThings() {
         print("Doing awesome things")
     }
@@ -33,5 +35,9 @@ extension AwesomeRepositoryImpl: AwesomeRepository {
 
     func doAwesomeThingsWithDocs() {
         print("Doing awesome things")
+    }
+
+    func getLatestAndMinimal() -> Single<(latest: String, minimal: String)> {
+        Single.just(("Awesome", "Things"))
     }
 }

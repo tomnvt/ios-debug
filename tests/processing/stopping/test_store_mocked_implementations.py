@@ -24,7 +24,7 @@ class Test(IosDebugTests):
         with open(target_file, "rb") as file:
             content = pickle.load(file)
             dictionary = literal_eval(content)
-            print(dictionary)
+
             assert "mock_implementations" in dictionary
             assert "AwesomeRepository" in dictionary["mock_implementations"]
             assert (

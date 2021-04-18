@@ -26,15 +26,17 @@ def create_and_set_mock_manager(
                     changed = ""
                 else:
                     root_vc_property_definition = re.findall(
-                        "rootViewController" + " = .*", content
+                        "rootViewController = .*", content
                     )[0]
                     root_vc_property_instance = re.findall(
                         " = (.*)", root_vc_property_definition
                     )[0]
-                    changed = root_vc_property_definition.replace(
-                        root_vc_property_instance, SHAKABLE_NC_INSTANCE
+                    instance_definition = re.findall(root_vc_property_instance + ' = .*', content)[0]
+                    instance_assignment = re.findall(root_vc_property_instance + ' = (.*)', content)[0]
+                    changed = instance_definition.replace(
+                        instance_assignment, SHAKABLE_NC_INSTANCE
                     )
-                    content = content.replace(root_vc_property_definition, changed)
+                    content = content.replace(instance_definition, changed)
                 with open(file_path, "w") as file:
                     file.write(content)
                     if "/ MARK: - Debug mode helper classes" not in content:

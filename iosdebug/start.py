@@ -42,12 +42,16 @@ def start(path=os.getcwd()):
         repository_protocols, path_to_content_map, protocol_to_protocol_functions, path
     )
 
-    processed_mock_manager = get_mock_settings_and_mock_cursor(
-        protocol_to_protocol_functions
-    )
-
     protocol_to_mocked_contents = get_protocol_to_mocked_content_dict(
         repository_protocols, path_to_content_map
+    )
+
+    protocol_to_mock_function_variants = get_mock_functions_variants(
+        protocol_to_mocked_contents
+    )
+
+    processed_mock_manager = get_mock_settings_and_mock_cursor(
+        protocol_to_protocol_functions, protocol_to_mock_function_variants
     )
 
     store_mocked_implementation(protocol_to_mocked_contents, path)

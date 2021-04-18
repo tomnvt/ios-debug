@@ -1,3 +1,6 @@
+from iosdebug.processing.starting.get_mock_functions_variants import (
+    get_mock_functions_variants,
+)
 from iosdebug.processing.starting.get_protocol_to_mocked_content_dict import (
     get_protocol_to_mocked_content_dict,
 )
@@ -33,9 +36,6 @@ class Test(IosDebugTests):
         protocols_to_functions_map = get_protocols_to_protocol_functions_dict(
             repository_protocols, path_to_content_dict
         )
-        processed_mock_manager = get_mock_settings_and_mock_cursor(
-            protocols_to_functions_map
-        )
 
         write_mock_implementations(
             repository_protocols,
@@ -50,6 +50,22 @@ class Test(IosDebugTests):
 
         store_mocked_implementation(
             protocol_to_mocked_contents, IosDebugTests.START_TEST_PROJECT_PATH
+        )
+
+        protocol_to_protocol_functions = get_protocols_to_protocol_functions_dict(
+            repository_protocols, path_to_content_dict
+        )
+
+        protocol_to_mocked_contents = get_protocol_to_mocked_content_dict(
+            repository_protocols, path_to_content_dict
+        )
+
+        protocol_to_mock_function_variants = get_mock_functions_variants(
+            protocol_to_mocked_contents
+        )
+
+        processed_mock_manager = get_mock_settings_and_mock_cursor(
+            protocol_to_protocol_functions, protocol_to_mock_function_variants
         )
 
         create_and_set_mock_manager(
@@ -68,8 +84,13 @@ class Test(IosDebugTests):
         )
         with open(target_file, "r") as file:
             content = file.read()
-            print(content)
+
             assert (
-                "self.window?.rootViewController = ShakableNavigationController()"
+                "let navigationController = ShakableNavigationController() // !!! Don't edit this line while in debug mode !!!"
+                in content
+            )
+
+            assert (
+                "self.window?.rootViewController = navigationController"
                 in content
             )

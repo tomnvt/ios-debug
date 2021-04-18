@@ -4,7 +4,7 @@ from collections import namedtuple
 
 def get_protocols_to_protocol_functions_dict(repository_protocols, path_to_content_map):
     Function = namedtuple(
-        "Function", "name, generic_parameter_clause, params, return_type"
+        "Function", "declaration, name, generic_parameter_clause, params, return_type"
     )
 
     protocol_to_protocol_functions = {}
@@ -77,7 +77,11 @@ def get_protocols_to_protocol_functions_dict(repository_protocols, path_to_conte
                     print("- return type:", return_type)
                     function_instances.append(
                         Function(
-                            function_name, generic_parameter_clause, params, return_type
+                            func,
+                            function_name,
+                            generic_parameter_clause,
+                            params,
+                            return_type,
                         )
                     )
                     print()

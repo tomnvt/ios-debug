@@ -43,3 +43,6 @@ class Test(IosDebugTests):
                 content.count("func doAwesomeThingsAndReturnSingle() -> Single<String>")
                 == 2
             )
+            assert "Mocked4" in content
+
+        # TODO: Test container registration

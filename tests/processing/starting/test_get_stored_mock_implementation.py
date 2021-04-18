@@ -9,5 +9,4 @@ class Test(IosDebugTests):
         result = get_stored_mock_implementation(
             IosDebugTests.START_TEST_PROJECT_PATH, "AwesomeRepository"
         )
-        print(result)
         assert "class MockAwesomeRepositoryImpl" in result

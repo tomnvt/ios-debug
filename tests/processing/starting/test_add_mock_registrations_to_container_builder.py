@@ -49,5 +49,5 @@ class Test(IosDebugTests):
         )
         with open(target_file, "r") as file:
             content = file.read()
-            print(content)
+
             assert "registerMockAwesomeRepository(to: container)" in content

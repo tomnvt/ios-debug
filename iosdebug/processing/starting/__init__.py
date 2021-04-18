@@ -13,3 +13,4 @@ from .get_protocol_to_mocked_content_dict import get_protocol_to_mocked_content_
 from .store_mocked_implementation import store_mocked_implementation
 from .create_and_set_mock_manager import create_and_set_mock_manager
 from .get_registrations import get_registrations
+from .get_mock_functions_variants import get_mock_functions_variants
