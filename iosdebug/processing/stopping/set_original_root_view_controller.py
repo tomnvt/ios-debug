@@ -20,6 +20,7 @@ def set_original_root_view_controller(swift_files, path_to_content_map, path):
             root_vc_property = re.findall(r"rootViewController[\s]+=[\s]+(.*)", content)
             if root_vc_property:
                 from pprint import pprint
+
                 pprint(data)
                 content = content.replace(
                     root_vc_property[0], data["original_root_view_controller"]

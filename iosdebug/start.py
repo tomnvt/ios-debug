@@ -14,12 +14,12 @@ def start(path=os.getcwd()):
             pickle.dump("{'mock_implementations': {}}", file)
 
     if os.path.isfile(path + os.sep + IGNORE_FILE):
-        with open(path + os.sep + IGNORE_FILE, 'r') as file:
-            ignored_protocols = file.read().split('\n')
+        with open(path + os.sep + IGNORE_FILE, "r") as file:
+            ignored_protocols = file.read().split("\n")
     else:
         ignored_protocols = []
 
-    print('ignored:', ignored_protocols)
+    print("ignored:", ignored_protocols)
 
     swift_files = find_swift_files(path)
 

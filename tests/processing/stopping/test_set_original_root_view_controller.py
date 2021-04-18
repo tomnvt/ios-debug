@@ -20,7 +20,10 @@ class Test(IosDebugTests):
 
         with open(target_file, "r") as file:
             content = file.read()
-            assert "self.window?.rootViewController = ShakableNavigationController()" in content
+            assert (
+                "self.window?.rootViewController = ShakableNavigationController()"
+                in content
+            )
 
         files = find_swift_files(IosDebugTests.STOP_TEST_PROJECT_PATH)
         path_to_content_dict = create_path_to_content_dict(files)

@@ -38,5 +38,8 @@ class Test(IosDebugTests):
         with open(target_file, "r") as file:
             content = file.read()
             assert "// MARK: - Mock implementation" in content
-            assert content.count('func doGenericAwesomeThings<T>') == 2
-            assert content.count('func doAwesomeThingsAndReturnSingle() -> Single<String>') == 2
+            assert content.count("func doGenericAwesomeThings<T>") == 2
+            assert (
+                content.count("func doAwesomeThingsAndReturnSingle() -> Single<String>")
+                == 2
+            )

@@ -27,5 +27,20 @@ class Test(IosDebugTests):
         assert awesome_generic_function.generic_parameter_clause == "<T>"
 
         awesome_function_with_tuple_param = result["AwesomeRepository"][2]
-        assert awesome_function_with_tuple_param.name == "doAwesomeThingsWithTupleParameter"
-        assert awesome_function_with_tuple_param.params[0] == "tupleList: [(first: String, second: String)]"
+        assert (
+            awesome_function_with_tuple_param.name
+            == "doAwesomeThingsWithTupleParameter"
+        )
+        assert (
+            awesome_function_with_tuple_param.params[0]
+            == "tupleList: [(first: String, second: String)]"
+        )
+
+        awesome_function_with_single = result["AwesomeRepository"][3]
+        assert awesome_function_with_single.return_type == "Single<String>"
+
+        awesome_function_with_single_tuple = result["AwesomeRepository"][5]
+        assert (
+            awesome_function_with_single_tuple.return_type
+            == "Single<(latest: String, minimal: String)>"
+        )

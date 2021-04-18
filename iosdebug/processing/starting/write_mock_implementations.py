@@ -26,7 +26,7 @@ def write_mock_implementations(
                         if function.generic_parameter_clause:
                             generic_param = function.generic_parameter_clause
                         else:
-                            generic_param = ''
+                            generic_param = ""
                         processed_func_template = processed_func_template.replace(
                             "<GENERIC_PARAMETER_CLAUSE>", generic_param
                         )
