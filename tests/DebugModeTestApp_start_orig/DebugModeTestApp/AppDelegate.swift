@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = localWindow
 
-        let navigationController = UINavigationController(nibName: nil, bundle: nil)
+        let navigationController = UINavigationController()
         navigationController.isNavigationBarHidden = true
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()

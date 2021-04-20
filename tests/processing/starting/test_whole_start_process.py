@@ -16,7 +16,9 @@ class Test(IosDebugTests):
         )
         with open(target_file, "r") as file:
             content = file.read()
-            assert "let navigationController = ShakableNavigationController()" in content
+            assert (
+                "let navigationController = ShakableNavigationController()" in content
+            )
 
         target_file = (
             IosDebugTests.START_TEST_PROJECT_PATH

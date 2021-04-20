@@ -31,8 +31,12 @@ def create_and_set_mock_manager(
                     root_vc_property_instance = re.findall(
                         " = (.*)", root_vc_property_definition
                     )[0]
-                    instance_definition = re.findall(root_vc_property_instance + ' = .*', content)[0]
-                    instance_assignment = re.findall(root_vc_property_instance + ' = (.*)', content)[0]
+                    instance_definition = re.findall(
+                        root_vc_property_instance + " = .*", content
+                    )[0]
+                    instance_assignment = re.findall(
+                        root_vc_property_instance + " = (.*)", content
+                    )[0]
                     changed = instance_definition.replace(
                         instance_assignment, SHAKABLE_NC_INSTANCE
                     )

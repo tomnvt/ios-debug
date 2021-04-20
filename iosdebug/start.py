@@ -39,7 +39,7 @@ def start(path=os.getcwd()):
     registrations = get_registrations(repository_protocols)
 
     write_mock_implementations(
-        repository_protocols, path_to_content_map, protocol_to_protocol_functions, path
+        path_to_content_map, protocol_to_protocol_functions, path
     )
 
     protocol_to_mocked_contents = get_protocol_to_mocked_content_dict(

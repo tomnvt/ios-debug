@@ -11,18 +11,22 @@ from iosdebug.processing.starting.find_repository_protocols import (
 from iosdebug.processing.starting.get_protocols_to_protocol_functions_dict import (
     get_protocols_to_protocol_functions_dict,
 )
+from iosdebug.constants import DATA_FILE, KEY_MOCK_IMPLEMENTATIONS
+import pickle
 
 
 class Test(IosDebugTests):
     def test_write_mock_implementations(self):
+        path = IosDebugTests.START_TEST_PROJECT_PATH
         files = find_swift_files(IosDebugTests.START_TEST_PROJECT_PATH)
+        with open(path + os.sep + DATA_FILE, "wb") as file:
+            pickle.dump(str({KEY_MOCK_IMPLEMENTATIONS: ""}), file)
         path_to_content_dict = create_path_to_content_dict(files)
         repository_protocols = find_repository_protocols(path_to_content_dict)
         protocols_to_functions_map = get_protocols_to_protocol_functions_dict(
             repository_protocols, path_to_content_dict
         )
         write_mock_implementations(
-            repository_protocols,
             path_to_content_dict,
             protocols_to_functions_map,
             IosDebugTests.START_TEST_PROJECT_PATH,
@@ -43,6 +47,13 @@ class Test(IosDebugTests):
                 content.count("func doAwesomeThingsAndReturnSingle() -> Single<String>")
                 == 2
             )
-            assert "Mocked4" in content
 
-        # TODO: Test container registration
+            print(content)
+            assert (
+                """\
+    container.register(AwesomeRepositoryImpl.self) { _ in
+        AwesomeRepositoryImpl()
+    }
+""".strip()
+                in content
+            )

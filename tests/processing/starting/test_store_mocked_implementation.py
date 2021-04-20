@@ -31,7 +31,6 @@ class Test(IosDebugTests):
             repository_protocols, path_to_content_dict
         )
         write_mock_implementations(
-            repository_protocols,
             path_to_content_dict,
             protocols_to_functions_map,
             IosDebugTests.STOP_TEST_PROJECT_PATH,

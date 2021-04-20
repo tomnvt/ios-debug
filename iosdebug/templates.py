@@ -21,6 +21,7 @@ class Mock<PROTOCOL>Impl: <PROTOCOL> {
     }
 }
 
+// MARK: - Mock protocol conformance
 extension Mock<PROTOCOL>Impl {
 
     <FUNCTIONS>
@@ -28,6 +29,8 @@ extension Mock<PROTOCOL>Impl {
 
 import Swinject
 func registerMock<PROTOCOL>(to container: Container) {
+    // swiftlint:disable force_unwrapping
+<ORIGINAL_REGISTRATION>
     container.register(<PROTOCOL>.self) { r in
         Mock<PROTOCOL>Impl(
             originalInstance: r.resolve(<PROTOCOL>Impl.self)!

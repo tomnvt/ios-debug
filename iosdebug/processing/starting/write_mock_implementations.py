@@ -1,3 +1,6 @@
+from iosdebug.processing.starting.get_original_registration import (
+    get_original_registrations,
+)
 from iosdebug.processing.starting.get_stored_mock_implementation import (
     get_stored_mock_implementation,
 )
@@ -5,10 +8,13 @@ from iosdebug.templates import FUNCTION_TEMPLATE, TEMPLATE
 
 
 def write_mock_implementations(
-    repository_protocols, path_to_content_map, protocol_to_protocol_functions, root_path
+    path_to_content_map, protocol_to_protocol_functions, root_path
 ):
+    original_registrations = get_original_registrations(
+        path_to_content_map, protocol_to_protocol_functions
+    )
     cases = ["Mocked1", "Mocked2", "Mocked3"]
-    for protocol in repository_protocols:
+    for protocol in protocol_to_protocol_functions:
         for path in path_to_content_map:
             if "class " + protocol in path_to_content_map[path]:
                 stored_impl = get_stored_mock_implementation(root_path, protocol)
@@ -92,6 +98,18 @@ def write_mock_implementations(
                     processed_template = processed_template.replace(
                         "<FUNCTIONS>", "\n    ".join(functions)
                     )
+
+                original_registration = original_registrations[protocol]
+                original_registration_initial_spaces = len(original_registration) - len(original_registration.lstrip())
+                indentation_difference = original_registration_initial_spaces - 4
+                lines = original_registration.split('\n')
+                matched_indent = [line[indentation_difference:] for line in lines]
+                original_registration = '\n'.join(matched_indent)
+
+                processed_template = processed_template.replace(
+                    "<ORIGINAL_REGISTRATION>",
+                    original_registration
+                )
 
                 with open(path, "a") as file:
                     file.write(processed_template)
