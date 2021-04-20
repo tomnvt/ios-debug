@@ -48,7 +48,6 @@ class Test(IosDebugTests):
                 == 2
             )
 
-            print(content)
             assert (
                 """\
     container.register(AwesomeRepositoryImpl.self) { _ in

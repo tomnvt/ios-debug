@@ -13,8 +13,6 @@ Command = namedtuple("Command", "name, description, execute")
 commands = [
     Command("start", "Stars debug mode", start),
     Command("stop", "Stops debug mode", stop),
-    # Command('sync', 'Syncs mocked function', sync),
-    # Command('about', 'Shows info', lambda: print('INFO')),
     Command("exit", "Exits execution", lambda: sys.exit()),
 ]
 
@@ -30,23 +28,17 @@ def get_selected_command():
 
 
 def try_command_execution(selected_command):
-    logger.instance.info("Selected command: " + selected_command)
-    logger.instance.debug("Selected command: " + selected_command)
     command_names = [command.name for command in commands]
     if selected_command in command_names:
-        logger.instance.info("Executing command: " + selected_command)
         print("Executing command:", selected_command)
         index = command_names.index(selected_command)
         commands[index].execute()
-        os.remove(logger.LOG_FILE_NAME)
     else:
-        logger.instance.logger.error("No command found")
         print("No command found. Please use one of the following:")
         _ = [print(command.name, "-", command.description) for command in commands]
 
 
 def main():
-    # setup_logger()
     selected_command = get_selected_command()
     try_command_execution(selected_command)
 
@@ -72,7 +64,7 @@ def main():
             print("Options:\n")
             _ = [print(name) for name in command_names]
 
-        commands[command_index].execute()
+    commands[command_index].execute()
 
 
 if __name__ == "__main__":

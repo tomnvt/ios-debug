@@ -49,7 +49,6 @@ class Test(IosDebugTests):
             protocols_to_functions_map, protocol_to_mock_function_variants
         )
 
-        print(processed_mock_manager)
         assert (
             '"doAwesomeThings()": ["Mocked1", "Mocked2", "Mocked3", "Mocked4"]'
             in processed_mock_manager

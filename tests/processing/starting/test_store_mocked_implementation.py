@@ -49,5 +49,3 @@ class Test(IosDebugTests):
             content = pickle.load(file)
             data = literal_eval(content)
             assert "mock_implementations" in data
-            # print(data['mock_implementations'])
-            # assert data['mock_implementatiosns']

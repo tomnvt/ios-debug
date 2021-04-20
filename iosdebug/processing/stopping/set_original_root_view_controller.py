@@ -8,7 +8,6 @@ from iosdebug.templates import SHAKABLE_NC_INSTANCE
 
 
 def set_original_root_view_controller(swift_files, path_to_content_map, path):
-    print(path + os.sep + DATA_FILE)
     with open(path + os.sep + DATA_FILE, "rb") as file:
         data = pickle.load(file)
         data = literal_eval(data)

@@ -13,7 +13,7 @@ def write_mock_implementations(
     original_registrations = get_original_registrations(
         path_to_content_map, protocol_to_protocol_functions
     )
-    cases = ["Mocked1", "Mocked2", "Mocked3"]
+    cases = ["Original", "Mocked1", "Mocked2", "Mocked3"]
     for protocol in protocol_to_protocol_functions:
         for path in path_to_content_map:
             if "class " + protocol in path_to_content_map[path]:

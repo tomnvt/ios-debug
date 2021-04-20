@@ -50,7 +50,7 @@ def create_and_set_mock_manager(
                 with open(path + os.sep + DATA_FILE, "rb") as file:
                     data = pickle.load(file)
                     data = literal_eval(data)
-                    data["original_root_view_controller"] = root_vc_property_instance
+                    data["original_root_view_controller"] = instance_assignment
                     data["changed_root_view_controlbler"] = changed
 
                 with open(path + os.sep + DATA_FILE, "wb") as file:

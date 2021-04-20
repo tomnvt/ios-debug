@@ -11,7 +11,6 @@ from .processing.stopping import (
 def stop(path=os.getcwd()):
     swift_files = find_swift_files(path)
     path_to_content_map = create_path_to_content_dict(swift_files)
-    print(path_to_content_map)
     store_mocked_implementations(path_to_content_map, path)
     set_original_root_view_controller(swift_files, path_to_content_map, path)
     remove_mock_registrations(swift_files)

@@ -57,7 +57,7 @@ SHAKABLE_NC_INSTANCE = (
 )
 
 MOCK_MANAGER_TEMPLATE = """
-
+// swiftlint:disable
 import UIKit
 
 class MockManager: UITableViewController {
@@ -70,13 +70,10 @@ class MockManager: UITableViewController {
     static var settings = [
         <MOCK_SETTINGS>
     ]
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.reloadData()
-    }
+// MARK: - Boilerplate
+extension MockManager {
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let keys = Array(Self.settings.keys)
@@ -97,21 +94,27 @@ class MockManager: UITableViewController {
         let cell = UITableViewCell()
         let currentKeySubkeyPair = getCurrentKeyAndSubKey(for: indexPath)
         let currentCursor = getCurrentCursor(for: indexPath)
-        let isMocked = Self.settings[currentKeySubkeyPair.key]![currentKeySubkeyPair.subKey]!
-        cell.textLabel?.text = isMocked[currentCursor]
+        let functionVariant = Self.settings[currentKeySubkeyPair.key]![currentKeySubkeyPair.subKey]!
+        cell.textLabel?.text = currentKeySubkeyPair.subKey + " - " + functionVariant[currentCursor]
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.lineBreakMode = .byWordWrapping
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentKeySubkeyPair = getCurrentKeyAndSubKey(for: indexPath)
         let options = Self.settings[currentKeySubkeyPair.key]![currentKeySubkeyPair.subKey]!
-        let cursor = getCurrentCursor(for: indexPath)
-        if cursor < options.count - 1 {
-            Self.cursor[currentKeySubkeyPair.key]![currentKeySubkeyPair.subKey] = cursor + 1
-        } else {
-            Self.cursor[currentKeySubkeyPair.key]![currentKeySubkeyPair.subKey] = 0
-        }
-        tableView.reloadData()
+        present(
+            SelectVariantViewController(
+                header: currentKeySubkeyPair.key,
+                options: options,
+                onResult: { index in
+                    Self.cursor[currentKeySubkeyPair.key]![currentKeySubkeyPair.subKey] = index
+                    tableView.reloadData()
+                }),
+            animated: true,
+            completion: nil
+        )
     }
 
     func getCurrentCursor(for indexPath: IndexPath) -> Int {
@@ -130,6 +133,47 @@ class MockManager: UITableViewController {
         let cursor = MockManager.cursor[String(className)]![functionName]!
         let options = MockManager.settings[String(className)]![functionName]!
         return options[cursor]
+    }
+}
+
+class SelectVariantViewController: UITableViewController {
+
+    private let header: String
+    private let options: [String]
+    private let onResult: (Int) -> Void
+
+    init(header: String, options: [String], onResult: @escaping (Int) -> Void) {
+        self.header = header
+        self.options = options
+        self.onResult = onResult
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        header
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return options.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = options[indexPath.row]
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        onResult(indexPath.row)
+        dismiss(animated: true, completion: nil)
     }
 }
 """
