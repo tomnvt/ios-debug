@@ -1,3 +1,4 @@
+from iosdebug.processing.starting.check_state import is_debug_mode_on
 import os
 import pickle
 import sys
@@ -19,9 +20,11 @@ def start(path=os.getcwd()):
     else:
         ignored_protocols = []
 
-    print("ignored:", ignored_protocols)
-
     swift_files = find_swift_files(path)
+
+    if is_debug_mode_on(swift_files):
+        print("Debug mode is already on.")
+        return
 
     path_to_content_map = create_path_to_content_dict(swift_files)
 

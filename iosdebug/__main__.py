@@ -4,7 +4,6 @@ from collections import namedtuple
 from iosdebug.start import start
 from iosdebug.stop import stop
 from iosdebug.sync import sync
-import iosdebug.logger as logger
 from prompt_toolkit.shortcuts import button_dialog, input_dialog, message_dialog
 
 
@@ -13,6 +12,7 @@ Command = namedtuple("Command", "name, description, execute")
 commands = [
     Command("start", "Stars debug mode", start),
     Command("stop", "Stops debug mode", stop),
+    Command("sync", "Syncs debug mode", sync),
     Command("exit", "Exits execution", lambda: sys.exit()),
 ]
 

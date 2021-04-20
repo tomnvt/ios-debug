@@ -99,17 +99,24 @@ def write_mock_implementations(
                         "<FUNCTIONS>", "\n    ".join(functions)
                     )
 
-                original_registration = original_registrations[protocol]
-                original_registration_initial_spaces = len(original_registration) - len(original_registration.lstrip())
-                indentation_difference = original_registration_initial_spaces - 4
-                lines = original_registration.split('\n')
-                matched_indent = [line[indentation_difference:] for line in lines]
-                original_registration = '\n'.join(matched_indent)
+                try:
+                    original_registration = original_registrations[protocol]
+                    original_registration_initial_spaces = len(original_registration) - len(original_registration.lstrip())
+                    indentation_difference = original_registration_initial_spaces - 4
+                    lines = original_registration.split('\n')
+                    matched_indent = [line[indentation_difference:] for line in lines]
+                    original_registration = '\n'.join(matched_indent)
 
-                processed_template = processed_template.replace(
-                    "<ORIGINAL_REGISTRATION>",
-                    original_registration
-                )
+                    processed_template = processed_template.replace(
+                        "<ORIGINAL_REGISTRATION>",
+                        original_registration
+                    )
+                except KeyError:
+                    print("No registration found for protoco " + protocol)
+                    processed_template = processed_template.replace(
+                        "<ORIGINAL_REGISTRATION>",
+                        "// !!! No original registration found !!!"
+                    )
 
                 with open(path, "a") as file:
                     file.write(processed_template)

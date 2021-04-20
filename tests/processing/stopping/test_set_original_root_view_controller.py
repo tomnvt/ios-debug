@@ -21,7 +21,7 @@ class Test(IosDebugTests):
         with open(target_file, "r") as file:
             content = file.read()
             assert (
-                "self.window?.rootViewController = ShakableNavigationController()"
+                "let navigationController = ShakableNavigationController()"
                 in content
             )
 
