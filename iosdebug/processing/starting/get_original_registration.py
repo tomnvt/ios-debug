@@ -9,7 +9,7 @@ def get_original_registrations(path_to_content_map, protocol_to_protocol_functio
             if "register(" + protocol in file:
                 registration = re.findall(
                     r".*container.register\(" + protocol + r"[\s\S]+?}", file
-                )[0].replace(protocol + '.self', protocol + 'Impl.self')
-                
+                )[0].replace(protocol + ".self", protocol + "Impl.self")
+
                 result[protocol] = registration
     return result

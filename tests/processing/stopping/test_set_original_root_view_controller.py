@@ -21,8 +21,7 @@ class Test(IosDebugTests):
         with open(target_file, "r") as file:
             content = file.read()
             assert (
-                "let navigationController = ShakableNavigationController()"
-                in content
+                "let navigationController = ShakableNavigationController()" in content
             )
 
         files = find_swift_files(IosDebugTests.STOP_TEST_PROJECT_PATH)
@@ -33,4 +32,7 @@ class Test(IosDebugTests):
 
         with open(target_file, "r") as file:
             content = file.read()
-            assert "let navigationController = UINavigationController(nibName: nil, bundle: nil)" in content
+            assert (
+                "let navigationController = UINavigationController(nibName: nil, bundle: nil)"
+                in content
+            )

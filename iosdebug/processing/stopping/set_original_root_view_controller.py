@@ -16,7 +16,9 @@ def set_original_root_view_controller(swift_files, path_to_content_map, path):
         with open(file_path, "r") as file:
             content = file.read()
             path_to_content_map[file_path] = content
-            root_vc_property = re.findall(r"= (ShakableNavigationController.*)", content)
+            root_vc_property = re.findall(
+                r"= (ShakableNavigationController.*)", content
+            )
             if root_vc_property:
                 content = content.replace(
                     root_vc_property[0], data["original_root_view_controller"]

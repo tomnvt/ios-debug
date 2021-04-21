@@ -1,4 +1,5 @@
 import logging
+import os
 
 LOG_FILE_NAME = "ios-debug.log"
 
@@ -22,5 +23,4 @@ instance.addHandler(f_handler)
 
 
 def delete_old_log_file():
-    with open(LOG_FILE_NAME, "w") as file:
-        file.write("")
+    os.remove(LOG_FILE_NAME)

@@ -1,4 +1,3 @@
-from iosdebug.processing.starting.check_state import is_debug_mode_on
 import os
 import pickle
 import sys

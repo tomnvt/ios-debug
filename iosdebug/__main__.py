@@ -1,10 +1,10 @@
-import os
 import sys
 from collections import namedtuple
 from iosdebug.start import start
 from iosdebug.stop import stop
 from iosdebug.sync import sync
 from prompt_toolkit.shortcuts import button_dialog, input_dialog, message_dialog
+import iosdebug.logger as logger
 
 
 Command = namedtuple("Command", "name, description, execute")
@@ -20,7 +20,6 @@ commands = [
 def get_selected_command():
     arguments = sys.argv
     if len(arguments) < 2:
-        logger.instance.error("No command found")
         print("No command found. Please use one of the following:")
         _ = [print(command.name, "-", command.description) for command in commands]
         sys.exit(0)
@@ -36,11 +35,6 @@ def try_command_execution(selected_command):
     else:
         print("No command found. Please use one of the following:")
         _ = [print(command.name, "-", command.description) for command in commands]
-
-
-def main():
-    selected_command = get_selected_command()
-    try_command_execution(selected_command)
 
 
 def main():
@@ -65,6 +59,7 @@ def main():
             _ = [print(name) for name in command_names]
 
     commands[command_index].execute()
+    logger.delete_old_log_file()
 
 
 if __name__ == "__main__":

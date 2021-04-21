@@ -22,4 +22,7 @@ class Test(IosDebugTests):
             path_to_content_dict, protocols_to_functions_map
         )
 
-        assert 'container.register(AwesomeRepositoryImpl.self' in result["AwesomeRepository"]
+        assert (
+            "container.register(AwesomeRepositoryImpl.self"
+            in result["AwesomeRepository"]
+        )
