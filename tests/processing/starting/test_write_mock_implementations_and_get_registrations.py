@@ -37,7 +37,7 @@ class Test(IosDebugTests):
             + os.sep
             + "DebugModeTestApp"
             + os.sep
-            + "AwesomeRepositoryImpl.swift"
+            + "AwesomeRepository.swift"
         )
         with open(target_file, "r") as file:
             content = file.read()

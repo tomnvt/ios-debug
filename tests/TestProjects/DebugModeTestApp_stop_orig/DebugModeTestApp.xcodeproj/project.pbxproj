@@ -150,6 +150,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBD1C6D8262AB9C2007C0866 /* Build configuration list for PBXNativeTarget "DebugModeTestApp" */;
 			buildPhases = (
+				BBF071DD2631DA3900DF13DA /* Sync debug mode */,
 				BBD1C6AA262AB9C1007C0866 /* Sources */,
 				BBD1C6AB262AB9C1007C0866 /* Frameworks */,
 				BBD1C6AC262AB9C1007C0866 /* Resources */,
@@ -276,6 +277,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BBF071DD2631DA3900DF13DA /* Sync debug mode */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Sync debug mode";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "shellScript = "/usr/bin/python3 ${PROJECT_DIR}/Scripts/.ios-debug_sync.p\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BBD1C6AA262AB9C1007C0866 /* Sources */ = {

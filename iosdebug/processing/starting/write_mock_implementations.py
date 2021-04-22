@@ -24,7 +24,7 @@ def write_mock_implementations(
     )
     for protocol in protocol_to_protocol_functions:
         for path in path_to_content_map:
-            if "class " + protocol in path_to_content_map[path]:
+            if "protocol " + protocol in path_to_content_map[path]:
                 stored_impl = get_stored_mock_implementation(root_path, protocol)
                 if stored_impl:
                     mock_variants = get_mock_functions_variants({protocol: stored_impl})

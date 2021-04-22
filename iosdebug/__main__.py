@@ -12,7 +12,8 @@ Command = namedtuple("Command", "name, description, execute")
 commands = [
     Command("start", "Stars debug mode", start),
     Command("stop", "Stops debug mode", stop),
-    Command("sync", "Syncs debug mode", sync),
+    Command("issue", "Creates an issue", lambda: print("Will go to Issues page")),
+    Command("help", "Syncs debug mode", lambda: print("Will show help")),
     Command("exit", "Exits execution", lambda: sys.exit()),
 ]
 

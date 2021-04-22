@@ -1,6 +1,8 @@
+from iosdebug.processing.stopping.remove_run_script_build_phase import (
+    remove_run_script_build_phase,
+)
 import os
 import pickle
-import sys
 
 from .processing.find_swift_files import find_swift_files
 from .processing.create_path_to_content_dict import create_path_to_content_dict
@@ -8,7 +10,7 @@ from .processing.starting import *
 from iosdebug.constants import DATA_FILE, IGNORE_FILE
 
 
-def start(path=os.getcwd()):
+def start(path=os.getcwd(), update_project=True):
     if not os.path.isfile(path + os.sep + DATA_FILE):
         with open(path + os.sep + DATA_FILE, "wb") as file:
             pickle.dump("{'mock_implementations': {}}", file)
@@ -63,3 +65,6 @@ def start(path=os.getcwd()):
     )
 
     add_mock_registrations_to_container_builder(swift_files, registrations)
+
+    if update_project:
+        add_run_script_build_phase(path)

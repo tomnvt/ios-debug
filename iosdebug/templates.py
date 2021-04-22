@@ -56,7 +56,7 @@ SHAKABLE_NC_INSTANCE = (
 
 MOCK_MANAGER_TEMPLATE = """
 // swiftlint:disable duplicate_imports
-import UIKit
+import Stevia
 
 class MockManager: UITableViewController {
 
@@ -67,6 +67,17 @@ class MockManager: UITableViewController {
     static var settings = [
         <MOCK_SETTINGS>
     ]
+
+    var hiddenSections = Set<Int>()
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        hiddenSections = Set(0..<Self.settings.keys.count)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 // MARK: - Boilerplate
@@ -84,6 +95,10 @@ extension MockManager {
 
     // swiftlint:disable force_unwrapping
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.hiddenSections.contains(section) {
+            return 0
+        }
+
         let keys = Array(Self.settings.keys)
         return Self.settings[keys[section]]?.keys.count ?? 0
     }
@@ -104,7 +119,7 @@ extension MockManager {
         let options = Self.settings[currentKeySubkeyPair.key]![currentKeySubkeyPair.subKey]!
         present(
             SelectVariantViewController(
-                header: currentKeySubkeyPair.key,
+                header: Array(Self.settings[currentKeySubkeyPair.key]!.keys)[indexPath.row],
                 options: options,
                 onResult: { index in
                     Self.cursor[currentKeySubkeyPair.key]![currentKeySubkeyPair.subKey] = index
@@ -131,6 +146,68 @@ extension MockManager {
         let cursor = MockManager.cursor[String(className)]![functionName]!
         let options = MockManager.settings[String(className)]![functionName]!
         return options[cursor]
+    }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let title = Array(Self.settings.keys)[section]
+            .replacingOccurrences(of: "Mock", with: "")
+            .replacingOccurrences(of: "Impl", with: "")
+        let view = UIView()
+
+        let btnSection = UIButton()
+        btnSection.contentEdgeInsets = UIEdgeInsets(top: 20, left: 15, bottom: 20, right: 15)
+        btnSection.setTitle(title,
+                            for: .normal)
+        btnSection.sizeToFit()
+        btnSection.titleLabel?.numberOfLines = 0
+        btnSection.tag = section
+        btnSection.addTarget(self,
+                             action: #selector(self.hideSection(sender:)),
+                             for: .touchUpInside)
+        btnSection.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        btnSection.setTitleColor(.black, for: .normal)
+
+        let viewSeparator = UIView()
+        viewSeparator.backgroundColor = .black
+        viewSeparator.height(1)
+
+        view.subviews(btnSection, viewSeparator)
+        view.layout(0,
+                    |btnSection|,
+                    0,
+                    viewSeparator,
+                    0)
+
+        return view
+    }
+
+    @objc
+    private func hideSection(sender: UIButton) {
+        let section = sender.tag
+
+        func indexPathsForSection() -> [IndexPath] {
+            let keys = Array(Self.settings.keys)
+            let optionsCount = Self.settings[keys[section]]!.count
+
+            var indexPaths = [IndexPath]()
+
+            for row in 0..<optionsCount {
+                indexPaths.append(IndexPath(row: row,
+                                            section: section))
+            }
+
+            return indexPaths
+        }
+
+        if self.hiddenSections.contains(section) {
+            self.hiddenSections.remove(section)
+            self.tableView.insertRows(at: indexPathsForSection(),
+                                      with: .fade)
+        } else {
+            self.hiddenSections.insert(section)
+            self.tableView.deleteRows(at: indexPathsForSection(),
+                                      with: .fade)
+        }
     }
 }
 

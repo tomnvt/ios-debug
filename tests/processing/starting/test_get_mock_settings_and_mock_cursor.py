@@ -50,6 +50,6 @@ class Test(IosDebugTests):
         )
 
         assert (
-            '"doAwesomeThings()": ["Mocked1", "Mocked2", "Mocked3", "Mocked4"]'
+            '"doAwesomeThings()": ["Original", "Mocked1", "Mocked2", "Mocked3", "Mocked4"]'
             in processed_mock_manager
         )

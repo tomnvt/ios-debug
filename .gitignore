@@ -11,3 +11,4 @@ venv/
 notes.txt
 test.py
 ios-debug_data.pkl
+ios-debug.log

@@ -15,3 +15,4 @@ from .create_and_set_mock_manager import create_and_set_mock_manager
 from .get_registrations import get_registrations
 from .get_mock_functions_variants import get_mock_functions_variants
 from .is_debug_mode_on import is_debug_mode_on
+from .add_run_script_build_phase import add_run_script_build_phase

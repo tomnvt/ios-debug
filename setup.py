@@ -25,7 +25,7 @@ setup(
     ],
     packages=find_packages(include=["iosdebug", "iosdebug.*"]),
     include_package_data=True,
-    install_requires=[],
+    install_requires=["prompt-toolkit", "psutil", "gitpython"],
     entry_points={
         "console_scripts": [
             "ios-debug=iosdebug.__main__:main",

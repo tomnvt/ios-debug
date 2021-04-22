@@ -31,7 +31,7 @@ def get_updated_mocked_implementation(functions, mocked_impl, mock_functions):
         extension_regex = r"extension .* {[\s\S]+?\n}"
         extension = re.findall(extension_regex, updated_mock_impl)[0]
         updated_extension = extension.replace(
-            "\n}", "\n" + processed_func_template + "\n}"
+            "\n}", "\n\n    " + processed_func_template + "\n}"
         )
         updated_mock_impl = re.sub(
             extension_regex, updated_extension, updated_mock_impl

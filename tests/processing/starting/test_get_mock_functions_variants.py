@@ -40,8 +40,10 @@ class Test(IosDebugTests):
         result = get_mock_functions_variants(protocol_to_mocked_contents)[
             "AwesomeRepository"
         ]
-
+        print("result")
+        print(result)
         assert result["doAwesomeThings()"] == [
+            '"Original"',
             '"Mocked1"',
             '"Mocked2"',
             '"Mocked3"',
@@ -49,6 +51,7 @@ class Test(IosDebugTests):
         ]
 
         assert result["doAwesomeThingsAndReturnSingle() -> Single<String>"] == [
+            '"Original"',
             '"Mocked1"',
             '"Mocked2"',
             '"Mocked3"',
