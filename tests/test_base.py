@@ -4,7 +4,7 @@ from distutils.dir_util import copy_tree
 
 class IosDebugTests:
 
-    TESTS_DIRECTORY = os.getcwd() + os.sep + "tests" + os.sep + 'TestProjects' + os.sep
+    TESTS_DIRECTORY = os.getcwd() + os.sep + "tests" + os.sep + "TestProjects" + os.sep
 
     START_TEST_PROJECT_PATH = TESTS_DIRECTORY + "DebugModeTestApp_start"
     STOP_TEST_PROJECT_PATH = TESTS_DIRECTORY + "DebugModeTestApp_stop"

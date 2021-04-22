@@ -12,7 +12,11 @@ def add_mock_registrations_to_container_builder(swift_files, registrations):
         print("ContainerBuilder.swift file not found")
     with open(container_builder_file, "r") as file:
         content = file.read()
-        registration_rows = "\n        ".join(registrations)
+        registration_rows = (
+            "// MARK: - DO NOT EDIT THIS PART WHILE IN DEBUG MODE ↓\n        "
+            + "\n        ".join(registrations)
+            + "\n        // MARK: - DO NOT EDIT THIS PART WHILE IN DEBUG MODE ↑"
+        )
         repository_registration = re.findall(
             r"static func registerRepository[\s\S]*?\n    \}", content
         )[0]

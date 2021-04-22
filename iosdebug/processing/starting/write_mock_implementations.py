@@ -1,7 +1,7 @@
 from iosdebug.processing.starting.get_mock_functions_variants import (
     get_mock_functions_variants,
 )
-from iosdebug.processing.syncing.get_updated_mocked_implementation import (
+from iosdebug.processing.starting.get_updated_mocked_implementation import (
     get_updated_mocked_implementation,
 )
 from iosdebug.processing.starting.create_basic_mock_implementation import (
@@ -50,7 +50,7 @@ def write_mock_implementations(
                     )
 
                     processed_template = processed_template.replace(
-                        "<FUNCTIONS>", "\n    ".join(functions)
+                        "<FUNCTIONS>", "\n\n    ".join(functions)
                     )
 
                 try:

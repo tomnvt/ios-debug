@@ -6,7 +6,7 @@ from iosdebug.sync import sync
 class Test(IosDebugTests):
     def test_sync(self):
         sync(IosDebugTests.SYNC_TEST_PROJECT_PATH)
-        return
+
         target_file = (
             IosDebugTests.SYNC_TEST_PROJECT_PATH
             + os.sep
@@ -17,9 +17,10 @@ class Test(IosDebugTests):
 
         with open(target_file, "r") as file:
             content = file.read()
-            assert '"justAnotherFunction()": 0' in content
+            print(content)
+            assert '"justAnotherFunction(param:)": 0' in content
             assert (
-                '"justAnotherFunction()": ["Original", "Mocked1", "Mocked2", "Mocked3"]'
+                '"justAnotherFunction(param:)": ["Original", "Mocked1", "Mocked2", "Mocked3"]'
                 in content
             )
 
@@ -33,4 +34,4 @@ class Test(IosDebugTests):
 
         with open(target_file, "r") as file:
             content = file.read()
-            assert "func justAnotherFunction() -> Bool {" in content
+            assert "func justAnotherFunction(param: Bool) -> Bool {" in content

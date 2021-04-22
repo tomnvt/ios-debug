@@ -9,7 +9,7 @@ from iosdebug.processing.create_path_to_content_dict import create_path_to_conte
 from iosdebug.processing.starting.get_protocols_to_protocol_functions_dict import (
     get_protocols_to_protocol_functions_dict,
 )
-from iosdebug.processing.syncing.get_updated_mocked_implementation import (
+from iosdebug.processing.starting.get_updated_mocked_implementation import (
     get_updated_mocked_implementation,
 )
 from iosdebug.processing.starting.get_stored_mock_implementation import (
@@ -20,7 +20,7 @@ from iosdebug.sync import sync
 
 
 class Test(IosDebugTests):
-    def test_sync(self):
+    def test_get_updated_mocked_implementation(self):
         files = find_swift_files(IosDebugTests.SYNC_TEST_PROJECT_PATH)
         path_to_content_dict = create_path_to_content_dict(files)
         repository_protocols = find_repository_protocols(path_to_content_dict)

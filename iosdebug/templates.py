@@ -1,12 +1,10 @@
-FUNCTION_TEMPLATE = """
-    func <FUNC_NAME><GENERIC_PARAMETER_CLAUSE>(<FUNC_PARAMS>) <RETURN_TYPE>{
+FUNCTION_TEMPLATE = """func <FUNC_NAME><GENERIC_PARAMETER_CLAUSE>(<FUNC_PARAMS>) <RETURN_TYPE>{
         switch MockManager.getOption(self, #function) {
         <CASES>
         default: break
         }
         <RETURN>originalInstance.<ORIGINAL_FUNC_CALL>
-    }
-"""
+    }"""
 
 TEMPLATE = """
 // MARK: - Mock implementation
@@ -57,7 +55,7 @@ SHAKABLE_NC_INSTANCE = (
 )
 
 MOCK_MANAGER_TEMPLATE = """
-// swiftlint:disable
+// swiftlint:disable duplicate_imports
 import UIKit
 
 class MockManager: UITableViewController {
@@ -66,13 +64,13 @@ class MockManager: UITableViewController {
         <MOCK_CURSORS>
     ]
 
-    // swiftlint:disable trailing_comma
     static var settings = [
         <MOCK_SETTINGS>
     ]
 }
 
 // MARK: - Boilerplate
+// swiftlint:disable type_contents_order
 extension MockManager {
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

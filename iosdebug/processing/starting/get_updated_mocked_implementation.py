@@ -19,7 +19,7 @@ def get_updated_mocked_implementation(functions, mocked_impl, mock_functions):
             deleted_functions.append(function)
 
     updated_mock_impl = mocked_impl
-    print("deleted_functions", deleted_functions)
+
     for function in deleted_functions:
         function = function.replace("(", "\\(").replace(")", "\\)")
         updated_mock_impl = re.sub(
