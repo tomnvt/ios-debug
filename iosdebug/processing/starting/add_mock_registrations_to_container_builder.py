@@ -3,13 +3,13 @@ import re
 
 
 def add_mock_registrations_to_container_builder(swift_files, registrations):
-    logger.instance.info("Looking for ContainerBuilder.swift file")
+    print("Looking for ContainerBuilder.swift file")
     try:
         container_builder_file = [
             file for file in swift_files if "ContainerBuilder.swift" in file
         ][0]
     except IndexError:
-        logger.instance.error("ContainerBuilder.swift file not found")
+        print("ContainerBuilder.swift file not found")
     with open(container_builder_file, "r") as file:
         content = file.read()
         registration_rows = "\n        ".join(registrations)
