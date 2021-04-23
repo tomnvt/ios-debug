@@ -3,6 +3,7 @@ from tests.test_base import IosDebugTests
 from iosdebug.start import start
 from iosdebug.stop import stop
 
+
 class Test(IosDebugTests):
     def test_sync(self):
         stop(IosDebugTests.SYNC_TEST_PROJECT_PATH, False)

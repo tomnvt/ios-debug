@@ -2,7 +2,7 @@
 
 # ios-debug
 
-`ios-debug` is a tool for creating mock implementation. It currently creates a mock implementation for each repository within an iOS project.
+`ios-debug` is a tool for creating and managing mock implementation. It currently creates a mock implementation for each repository protocol within an iOS project.
 
 ## THREE THINGS...
 

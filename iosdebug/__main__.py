@@ -2,9 +2,9 @@ import sys
 from collections import namedtuple
 from iosdebug.start import start
 from iosdebug.stop import stop
-from iosdebug.sync import sync
 from prompt_toolkit.shortcuts import button_dialog, input_dialog, message_dialog
 import iosdebug.logger as logger
+import webbrowser
 
 
 Command = namedtuple("Command", "name, description, execute")
@@ -12,8 +12,11 @@ Command = namedtuple("Command", "name, description, execute")
 commands = [
     Command("start", "Stars debug mode", start),
     Command("stop", "Stops debug mode", stop),
-    Command("issue", "Creates an issue", lambda: print("Will go to Issues page")),
-    Command("help", "Syncs debug mode", lambda: print("Will show help")),
+    Command(
+        "issue",
+        "Creates an issue",
+        lambda: webbrowser.open("https://github.com/tomnvt/ios-debug/issues/new"),
+    ),
     Command("exit", "Exits execution", lambda: sys.exit()),
 ]
 
