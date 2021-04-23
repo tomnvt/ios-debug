@@ -1,3 +1,4 @@
+from iosdebug.constants import SYNC_RUN_SCRIPT_FILE
 import os
 from distutils.dir_util import copy_tree
 
@@ -29,6 +30,11 @@ class IosDebugTests:
                 project + cls.ORIGINAL_PROJECT_SUFFIC,
                 project,
             )
+
+        try:
+            os.remove(SYNC_RUN_SCRIPT_FILE)
+        except FileNotFoundError:
+            pass
 
     def setup_method(self, method):
         pass

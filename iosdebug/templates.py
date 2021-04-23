@@ -7,8 +7,7 @@ FUNCTION_TEMPLATE = """func <FUNC_NAME><GENERIC_PARAMETER_CLAUSE>(<FUNC_PARAMS>)
     }"""
 
 TEMPLATE = """
-// MARK: - Mock implementation
-protocol Mock<PROTOCOL>: <PROTOCOL> {}
+// MARK: - Mock implementation init
 
 class Mock<PROTOCOL>Impl: <PROTOCOL> {
 
@@ -19,7 +18,7 @@ class Mock<PROTOCOL>Impl: <PROTOCOL> {
     }
 }
 
-// MARK: - Mock protocol conformance
+// MARK: - Mock implementation functions
 extension Mock<PROTOCOL>Impl {
 
     <FUNCTIONS>

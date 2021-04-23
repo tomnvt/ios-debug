@@ -1,4 +1,4 @@
-from iosdebug.constants import RUN_SCRIPT_PHASE_ID
+from iosdebug.constants import RUN_SCRIPT_PHASE_ID, SYNC_RUN_SCRIPT_FILE
 import os
 import re
 
@@ -84,5 +84,5 @@ def add_run_script_build_phase(path):
     with open(project_file, "w") as file:
         file.write(content)
 
-    with open(".ios-debug_sync.py", "w") as file:
+    with open(SYNC_RUN_SCRIPT_FILE, "w") as file:
         file.write(RUN_SCRIPT_BUILD_PHASE)

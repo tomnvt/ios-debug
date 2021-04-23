@@ -1,4 +1,4 @@
-from iosdebug.constants import RUN_SCRIPT_PHASE_ID
+from iosdebug.constants import RUN_SCRIPT_PHASE_ID, SYNC_RUN_SCRIPT_FILE
 import re
 import os
 
@@ -16,3 +16,8 @@ def remove_run_script_build_phase(path):
 
     with open(project_file, "w") as file:
         file.write(content)
+
+    try:
+        os.remove(SYNC_RUN_SCRIPT_FILE)
+    except FileNotFoundError:
+        pass
