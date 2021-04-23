@@ -1,3 +1,5 @@
+[![tomnvt](https://circleci.com/gh/tomnvt/ios-debug.svg?style=shield&circle-token=ac247565d93c63e3e695882be5a5a3563c1553c5)](https://circleci.com/gh/tomnvt/ios-debug.svg?style=shield&circle-token=ac247565d93c63e3e695882be5a5a3563c1553c5)
+
 # ios-debug
 
 `ios-debug` is a tool for creating mock implementation. It currently creates a mock implementation for each repository within an iOS project.

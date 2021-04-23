@@ -1,11 +1,12 @@
 import os
 from tests.test_base import IosDebugTests
-from iosdebug.sync import sync
-
+from iosdebug.start import start
+from iosdebug.stop import stop
 
 class Test(IosDebugTests):
     def test_sync(self):
-        sync(IosDebugTests.SYNC_TEST_PROJECT_PATH)
+        stop(IosDebugTests.SYNC_TEST_PROJECT_PATH, False)
+        start(IosDebugTests.SYNC_TEST_PROJECT_PATH, False)
 
         target_file = (
             IosDebugTests.SYNC_TEST_PROJECT_PATH

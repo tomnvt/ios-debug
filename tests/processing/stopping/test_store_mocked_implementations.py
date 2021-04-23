@@ -12,7 +12,7 @@ from iosdebug.processing.find_swift_files import find_swift_files
 class Test(IosDebugTests):
     def test_create_path_to_content_dict(self):
         target_file = (
-            IosDebugTests.STOP_TEST_PROJECT_PATH + os.sep + "ios-debug_data.pkl"
+            IosDebugTests.STOP_TEST_PROJECT_PATH + os.sep + ".ios-debug_data.pkl"
         )
 
         files = find_swift_files(IosDebugTests.STOP_TEST_PROJECT_PATH)

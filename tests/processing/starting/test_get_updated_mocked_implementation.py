@@ -16,7 +16,6 @@ from iosdebug.processing.starting.get_stored_mock_implementation import (
     get_stored_mock_implementation,
 )
 from tests.test_base import IosDebugTests
-from iosdebug.sync import sync
 
 
 class Test(IosDebugTests):
