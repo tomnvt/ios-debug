@@ -26,6 +26,7 @@ BUILD_PHASE = "				BBF071DD2631DA3900DF13DA /* Sync debug mode */,"
 
 
 RUN_SCRIPT_BUILD_PHASE = """
+import os
 from iosdebug.stop import stop
 from iosdebug.start import start
 
