@@ -4,6 +4,7 @@ import os
 
 
 def remove_run_script_build_phase(path):
+    print("Removing run script phase...")
     files = os.listdir(path)
     xcodeproj_file_name = [file for file in files if ".xcodeproj" in file][0]
     project_file = path + os.sep + xcodeproj_file_name + os.sep + "project.pbxproj"
@@ -21,3 +22,4 @@ def remove_run_script_build_phase(path):
         os.remove(SYNC_RUN_SCRIPT_FILE)
     except FileNotFoundError:
         pass
+    print("Run script phase removed.")

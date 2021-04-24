@@ -8,6 +8,7 @@ from iosdebug.templates import SHAKABLE_NC_INSTANCE
 
 
 def set_original_root_view_controller(swift_files, path_to_content_map, path):
+    print("Assigning original rootViewController instance...")
     with open(path + os.sep + DATA_FILE, "rb") as file:
         data = pickle.load(file)
         data = literal_eval(data)
@@ -26,3 +27,4 @@ def set_original_root_view_controller(swift_files, path_to_content_map, path):
                 content = content.split("\n// MARK: - Debug mode helper classes")[0]
                 with open(file_path, "w") as file:
                     file.write(content)
+    print("Original rootViewController instance assinged.")

@@ -30,8 +30,11 @@ import os
 from iosdebug.stop import stop
 from iosdebug.start import start
 
-if os.environ['ENABLE_PREVIEWS'] == "YES":
-    raise SystemExit
+try:
+    if os.environ['ENABLE_PREVIEWS'] == "YES":
+        raise SystemExit
+except KeyError:
+    pass
 
 stop(update_project=False)
 start(update_project=False)
@@ -39,6 +42,7 @@ start(update_project=False)
 
 
 def add_run_script_build_phase(path):
+    print("Adding run script build phase...")
     files = os.listdir(path)
     xcodeproj_file_name = [file for file in files if ".xcodeproj" in file][0]
     project_file = path + os.sep + xcodeproj_file_name + os.sep + "project.pbxproj"
@@ -86,3 +90,5 @@ def add_run_script_build_phase(path):
 
     with open(SYNC_RUN_SCRIPT_FILE, "w") as file:
         file.write(RUN_SCRIPT_BUILD_PHASE)
+
+    print("Run script build phase added.")

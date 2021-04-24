@@ -2,6 +2,7 @@ import re
 
 
 def remove_mock_registrations(swift_files):
+    print("Removing mock registrations...")
     container_builder_file = [
         file for file in swift_files if "ContainerBuilder.swift" in file
     ][0]
@@ -20,3 +21,4 @@ def remove_mock_registrations(swift_files):
         file.write(
             content.replace(repository_registration, repository_registration_processed)
         )
+    print("Mock registrations removed.")

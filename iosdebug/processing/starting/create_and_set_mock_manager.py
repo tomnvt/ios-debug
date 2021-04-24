@@ -10,6 +10,7 @@ from iosdebug.templates import SHAKABLE_NC, SHAKABLE_NC_INSTANCE
 def create_and_set_mock_manager(
     swift_files, path_to_content_map, processed_mock_manager, path
 ):
+    print("Looking for rootViewController assignment...")
     for file_path in swift_files:
         with open(file_path, "r") as file:
             content = file.read()
@@ -55,3 +56,5 @@ def create_and_set_mock_manager(
 
                 with open(path + os.sep + DATA_FILE, "wb") as file:
                     pickle.dump(str(data), file)
+
+                print("rootViewController reassigned.")

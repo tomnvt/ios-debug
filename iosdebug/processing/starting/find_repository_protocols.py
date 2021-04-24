@@ -2,6 +2,7 @@ import re
 
 
 def find_repository_protocols(path_to_content_map):
+    print("Looking for repository protocols.")
     repository_protocols = []
 
     for file_path in path_to_content_map:
@@ -14,7 +15,7 @@ def find_repository_protocols(path_to_content_map):
             if protocol_conformance_row:
                 repository_protocols.append(protocol_conformance_row[0])
 
-    print('Found repositories:')
+    print("Found repositories:")
     _ = [print(repo) for repo in repository_protocols]
-    print('\n')
+    print()
     return repository_protocols

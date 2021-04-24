@@ -19,4 +19,4 @@ def stop(path=os.getcwd(), update_project=True):
     remove_mock_registrations(swift_files)
     if update_project:
         remove_run_script_build_phase(path)
-    print('Debug mode stooped.')
+    print("Debug mode stooped.")

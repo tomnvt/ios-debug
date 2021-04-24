@@ -69,4 +69,4 @@ def start(path=os.getcwd(), update_project=True):
     if update_project:
         add_run_script_build_phase(path)
 
-    print('Debug mode started.')
+    print("Debug mode started.")

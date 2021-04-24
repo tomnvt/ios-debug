@@ -18,7 +18,6 @@ class Mock<PROTOCOL>Impl: <PROTOCOL> {
     }
 }
 
-// MARK: - Mock implementation functions
 extension Mock<PROTOCOL>Impl {
 
     <FUNCTIONS>

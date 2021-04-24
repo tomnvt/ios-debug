@@ -6,6 +6,7 @@ from iosdebug.constants import DATA_FILE
 
 
 def store_mocked_implementations(path_to_content_map, root_path):
+    print("Removing and storing mock implementations...")
     with open(root_path + os.sep + DATA_FILE, "rb") as file:
         data = pickle.load(file)
         data = literal_eval(data)
@@ -20,3 +21,4 @@ def store_mocked_implementations(path_to_content_map, root_path):
                         file.write(content_split[0])
     with open(root_path + os.sep + DATA_FILE, "wb") as file:
         pickle.dump(str(data), file)
+    print("Mock implementations removed and stored.")

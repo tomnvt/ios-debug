@@ -46,7 +46,7 @@ extension AwesomeRepositoryImpl: AwesomeRepository {
     }
 }
 
-// MARK: - Mock implementation
+// MARK: - Mock implementation init
 
 protocol MockAwesomeRepository: AwesomeRepository {}
 

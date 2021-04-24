@@ -19,6 +19,7 @@ from iosdebug.templates import FUNCTION_TEMPLATE, TEMPLATE
 def write_mock_implementations(
     path_to_content_map, protocol_to_protocol_functions, root_path
 ):
+    print("Creating mock implementations...")
     original_registrations = get_original_registrations(
         path_to_content_map, protocol_to_protocol_functions
     )
@@ -75,3 +76,4 @@ def write_mock_implementations(
 
                 with open(path, "a") as file:
                     file.write(processed_template)
+    print("Mock implementations created.")
