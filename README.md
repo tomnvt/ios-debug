@@ -15,7 +15,7 @@
 
 ## INSTALLATION
 
-If you have some version of `pip`, either `pip ios-debug` or `pip3 ios-debug` should do the job.
+If you have some version of `pip`, either `pip install ios-debug` or `pip3 install ios-debug` should do the job.
 
 
 ## USAGE
