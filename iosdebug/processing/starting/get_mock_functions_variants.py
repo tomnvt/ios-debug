@@ -12,6 +12,6 @@ def get_mock_functions_variants(protocol_to_mocked_contents):
         functions_split = mocked_extension.split("func ")[1:]
         for function in functions_split:
             function_name = re.findall("([\s\S]+?) {", function)[0]
-            cases = re.findall("case (.*):", function)
+            cases = re.findall("case (.*\"):", function)
             result[entity][function_name] = cases
     return result
