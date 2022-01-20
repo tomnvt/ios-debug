@@ -20,7 +20,7 @@ RUN_SCRIPT_PHASE = """
         );
         runOnlyForDeploymentPostprocessing = 0;
         shellPath = /bin/sh;
-        shellScript = "/usr/bin/python3 ${PROJECT_DIR}/.ios-debug_sync.py";
+        shellScript = "if [ -n \\"$CI\\" ]; then\\n    echo \\"Running on CI Skipping\\"\\n    exit 0\\nfi\\n\n/usr/bin/python3 ${PROJECT_DIR}/.ios-debug_sync.py";
     };"""
 BUILD_PHASE = "				BBF071DD2631DA3900DF13DA /* Sync debug mode */,"
 
